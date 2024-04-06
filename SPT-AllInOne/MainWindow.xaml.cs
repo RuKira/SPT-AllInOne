@@ -19,6 +19,7 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        // Utils.test();
     }
 
     private void FrameworkElement_OnLoaded(object sender, RoutedEventArgs e)
