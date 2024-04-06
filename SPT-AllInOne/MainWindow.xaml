@@ -12,29 +12,24 @@
             <RowDefinition />
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Menu Width="Auto" Height="20" Background="#FFA9D1F4" DockPanel.Dock="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Menu Grid.Row="0" Grid.ColumnSpan="3" Width="Auto" Height="20" Background="#FFdddddd" DockPanel.Dock="Top">
             <MenuItem Header="Reference"/>
             <MenuItem Header="Start Server"/>
             <MenuItem Header="Stop Server"/>
             <MenuItem Header="Options"/>
         </Menu>
-        <!-- <StackPanel x:Name="ToolBarPanel"> -->
-        <!--     <ToolBarTray IsLocked="True" Background="Gray" HorizontalAlignment="Left" Width="260" Margin="3, 0"> -->
-        <!--         <ToolBar Background="Gray" OverflowMode="Never" Loaded="FrameworkElement_OnLoaded"> -->
-        <!--             <Button>Reference</Button> -->
-        <!--             <Button>Start Server</Button> -->
-        <!--             <Button>Stop Server</Button> -->
-        <!--             <Button>Options</Button> -->
-        <!--         </ToolBar> -->
-        <!--     </ToolBarTray> -->
-        <!-- </StackPanel> -->
-        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical">
-            <StackPanel x:Name="QuestFilePanel" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="3, 25">
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical" Margin="5,10">
+            <StackPanel x:Name="QuestFilePanel" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0">
                 <Button Margin="3" Height="24" Width="112">New Quest File</Button>
                 <Button Margin="3" Height="24" Width="112">Load Quest File</Button>
                 <Button Margin="3" Height="24" Width="112">Save Quest File</Button>
             </StackPanel>
-            <StackPanel x:Name="TextBlockPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4, 55">
+            <StackPanel x:Name="TextBlockPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0">
                 <TextBlock Background="White" Width="347" Height="20"></TextBlock>
                 <TextBlock Background="White" Width="347" Height="20" Margin="3"></TextBlock>
             </StackPanel>
