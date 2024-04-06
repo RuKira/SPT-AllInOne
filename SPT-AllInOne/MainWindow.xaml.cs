@@ -20,4 +20,18 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
     }
+
+    private void FrameworkElement_OnLoaded(object sender, RoutedEventArgs e)
+    {
+        var toolBar = sender as ToolBar;
+        if (toolBar?.Template.FindName("OverflowGrid", toolBar) is FrameworkElement overflowGrid)
+        {
+            overflowGrid.Visibility = Visibility.Collapsed;
+        }
+
+        if (toolBar?.Template.FindName("MainPanelBorder", toolBar) is FrameworkElement mainPanelBorder)
+        {
+            mainPanelBorder.Margin = new Thickness();
+        }
+    }
 }

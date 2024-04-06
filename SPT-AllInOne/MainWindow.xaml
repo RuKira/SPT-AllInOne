@@ -5,8 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SPT_AllInOne"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="SPT-AllInOne" Height="1000" Width="1400" Background="Gray">
     <Grid>
-
+        <StackPanel x:Name="ToolBarPanel">
+            <ToolBarTray IsLocked="True" Background="Gray" HorizontalAlignment="Left" Width="260" Margin="3, 0">
+                <ToolBar Background="Gray" OverflowMode="Never" Loaded="FrameworkElement_OnLoaded">
+                    <Button>Reference</Button>
+                    <Button>Start Server</Button>
+                    <Button>Stop Server</Button>
+                    <Button>Options</Button>
+                </ToolBar>
+            </ToolBarTray>
+        </StackPanel>
+        <StackPanel x:Name="QuestFilePanel" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="3, 25">
+            <Button Margin="3" Height="24" Width="112">New Quest File</Button>
+            <Button Margin="3" Height="24" Width="112">Load Quest File</Button>
+            <Button Margin="3" Height="24" Width="112">Save Quest File</Button>
+        </StackPanel>
+        <StackPanel x:Name="TextBlockPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4, 55">
+            <TextBlock Background="White" Width="347" Height="20"></TextBlock>
+            <TextBlock Background="White" Width="347" Height="20" Margin="3"></TextBlock>
+        </StackPanel>
+        
+        
+        
+        
+        <!-- Bottom Grid -->
+        <StackPanel x:Name="RepoPanel" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="250" Height="25">
+            <Label>https://github.com/RuKira/SPT-AllInOne</Label>
+        </StackPanel>
+        <StackPanel x:Name="VersionPanel" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="250" Height="25">
+            <Label>ALPHA VERSION 0.0.1: REPORT ALL BUGS</Label>
+        </StackPanel>
+        <StackPanel x:Name="SpecialThanksPanel" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="220" Height="25">
+            <Label>SPECIAL THANKS TO DIRTBIKERCJ</Label>
+        </StackPanel>
     </Grid>
 </Window>
