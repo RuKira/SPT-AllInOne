@@ -15,9 +15,8 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Width="Auto" Height="20" Background="#FFA9D1F4" DockPanel.Dock="Top">
+        <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Width="Auto" Height="20" Background="#FFA9D1F4" DockPanel.Dock="Top">
             <MenuItem Height="Auto" Width="Auto" Header="Reference"/>           <!-- TODO: This should link to anything related to making quest, ID Searching, Quest Formatting, or Documentation on how this application works -->
             <MenuItem Height="Auto" Width="Auto" Header="Start Server"/>        <!-- TODO: This should simply run the Aki.Server.exe in the Server Folder | Export to Server Console-->
             <MenuItem Height="Auto" Width="Auto" Header="Stop Server"/>         <!-- TODO: This should stop the Aki.Server Service (Need Exact name) -->
@@ -53,7 +52,7 @@
                 </StackPanel>
             </StackPanel>
         </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="3, 4">
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="3, 4">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Width="272" Height="20" Background="White" Margin="5, 0"></TextBlock>
                 <CheckBox Margin="5, 0" Width="240" IsChecked="True">Can Show Notification</CheckBox>
@@ -76,19 +75,34 @@
                 <ComboBox Width="272" Height="20" Background="DarkGray" Margin="5, 0">Type</ComboBox>
             </StackPanel>
             <StackPanel Height="830" Margin="4">
-                <TabPanel Height="830" Background="White"> <!-- TODO: This Tab Panel is not working, or is used incorrectly, research into an actual Tab Panel -->
-                    <TabItem Height="20" Width="146" Background="DarkGray" BorderBrush="Gray">Locales</TabItem>                 <!-- TODO: This will house all Locale Data -->
-                    <TabItem Height="20" Width="146" Background="DarkGray" BorderBrush="Gray">Available For Start</TabItem>     <!-- TODO: This will house all Quest Start Data -->
-                    <TabItem Height="20" Width="146" Background="DarkGray" BorderBrush="Gray">Available For Finish</TabItem>    <!-- TODO: This will house all Quest Finish Data -->
-                    <TabItem Height="20" Width="146" Background="DarkGray" BorderBrush="Gray">Fail</TabItem>                    <!-- TODO: This will house all quest Fail Data  -->
-                    <TabItem Height="20" Width="146" Background="DarkGray" BorderBrush="Gray">Rewards</TabItem>                 <!-- TODO: This will house all Rewards Data -->
-                    <TabItem Height="20" Width="146" Background="DarkGray" BorderBrush="Gray">Gunsmith</TabItem>                <!-- TODO: This will house all Gunsmith Data (Unique)  -->
-                    <TabItem Height="20" Width="146" Background="DarkGray" BorderBrush="Gray">Saves</TabItem>                   <!-- TODO: This will house all Pre-made Gunsmith Presets (Unique)  -->
-                </TabPanel>
+                <TabControl Height="830" Background="White"> <!-- TODO: This Tab Panel is not working, or is used incorrectly, research into an actual Tab Panel -->
+                    <TabItem Height="20" Width="140" Background="DarkGray" BorderBrush="Gray" Header="Locales">                 <!-- TODO: This will house all Locale Data -->
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox Grid.Row="0" Grid.Column="0" Margin="3"/>
+                            <TextBox Grid.Row="1" Grid.Column="0" Margin="3"/>
+                            <TextBox Grid.Row="0" Grid.Column="1" Margin="3"/>
+                            <TextBox Grid.Row="1" Grid.Column="1" Margin="3"/>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Height="20" Width="140" Background="DarkGray" BorderBrush="Gray" Header="Available For Start"/>    <!-- TODO: This will house all Quest Start Data -->
+                    <TabItem Height="20" Width="140" Background="DarkGray" BorderBrush="Gray" Header="Available For Finish"/>   <!-- TODO: This will house all Quest Finish Data -->
+                    <TabItem Height="20" Width="140" Background="DarkGray" BorderBrush="Gray" Header="Fail"/>                   <!-- TODO: This will house all quest Fail Data  -->
+                    <TabItem Height="20" Width="140" Background="DarkGray" BorderBrush="Gray" Header="Rewards"/>                <!-- TODO: This will house all Rewards Data -->
+                    <TabItem Height="20" Width="140" Background="DarkGray" BorderBrush="Gray" Header="Gunsmith"/>               <!-- TODO: This will house all Gunsmith Data (Unique)  -->
+                    <TabItem Height="20" Width="140" Background="DarkGray" BorderBrush="Gray" Header="Saves"/>                  <!-- TODO: This will house all Pre-made Gunsmith Presets (Unique)  -->
+                </TabControl>
+                </StackPanel>
             </StackPanel>
-        </StackPanel>
         <!-- Bottom Grid -->
-        <Menu Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Width="Auto" Height="28" Background="#FFA9D1F4" DockPanel.Dock="Bottom">
+        <Menu Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Width="Auto" Height="28" Background="#FFA9D1F4" DockPanel.Dock="Bottom">
             <Label Height="Auto" Width="Auto">https://github.com/RuKira/SPT-AllInOne</Label>
             <Label Height="Auto" Width="Auto" Margin="350, 0">ALPHA VERSION 0.0.1: REPORT ALL BUGS</Label>
             <Label Height="Auto" Width="Auto">SPECIAL THANKS TO DIRTBIKERCJ</Label>

@@ -19,7 +19,7 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
-        Utils.test();
-        this.Close();
+        // Utils.test();
+        // this.Close();
     }
 }
