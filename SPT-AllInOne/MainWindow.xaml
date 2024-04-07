@@ -18,11 +18,11 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Width="Auto" Height="20" Background="#FFA9D1F4" DockPanel.Dock="Top">
-            <MenuItem Height="Auto" Width="Auto" Header="Reference"/> <!-- TODO: This should link to anything related to making quest, ID Searching, Quest Formatting, or Documentation on how this application works -->
-            <MenuItem Height="Auto" Width="Auto" Header="Start Server"/> <!-- TODO: This should simply run the Aki.Server.exe in the Server Folder | Export to Server Console-->
-            <MenuItem Height="Auto" Width="Auto" Header="Stop Server"/> <!-- TODO: This should stop the Aki.Server Service (Need Exact name) -->
-            <MenuItem Height="Auto" Width="Auto" Header="Options"/> <!-- TODO: This should allow you to setup locations, Server, Main Folder, etc -->
-            <MenuItem Height="Auto" Width="Auto" Header="Tools"></MenuItem> <!-- TODO: This will be dead for a bit, but will be used for the Trader Creation, and other things not related to this MainWindow -->
+            <MenuItem Height="Auto" Width="Auto" Header="Reference"/>           <!-- TODO: This should link to anything related to making quest, ID Searching, Quest Formatting, or Documentation on how this application works -->
+            <MenuItem Height="Auto" Width="Auto" Header="Start Server"/>        <!-- TODO: This should simply run the Aki.Server.exe in the Server Folder | Export to Server Console-->
+            <MenuItem Height="Auto" Width="Auto" Header="Stop Server"/>         <!-- TODO: This should stop the Aki.Server Service (Need Exact name) -->
+            <MenuItem Height="Auto" Width="Auto" Header="Options"/>             <!-- TODO: This should allow you to setup locations, Server, Main Folder, etc -->
+            <MenuItem Height="Auto" Width="Auto" Header="Tools"></MenuItem>     <!-- TODO: This will be dead for a bit, but will be used for the Trader Creation, and other things not related to this MainWindow -->
         </Menu>
         <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left">
             <StackPanel x:Name="QuestFilePanel" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -74,6 +74,17 @@
                 <CheckBox Margin="5, 0" Width="120">Instant Complete</CheckBox>
                 <ComboBox Width="71" Height="20" Background="DarkGray" Margin="5, 0">Side</ComboBox>
                 <ComboBox Width="272" Height="20" Background="DarkGray" Margin="5, 0">Type</ComboBox>
+            </StackPanel>
+            <StackPanel Height="830" Margin="4">
+                <TabPanel Height="830" Background="White"> <!-- TODO: This Tab Panel is not working, or is used incorrectly, research into an actual Tab Panel -->
+                    <TabItem Height="20" Width="146" Background="DarkGray" BorderBrush="Gray">Locales</TabItem>                 <!-- TODO: This will house all Locale Data -->
+                    <TabItem Height="20" Width="146" Background="DarkGray" BorderBrush="Gray">Available For Start</TabItem>     <!-- TODO: This will house all Quest Start Data -->
+                    <TabItem Height="20" Width="146" Background="DarkGray" BorderBrush="Gray">Available For Finish</TabItem>    <!-- TODO: This will house all Quest Finish Data -->
+                    <TabItem Height="20" Width="146" Background="DarkGray" BorderBrush="Gray">Fail</TabItem>                    <!-- TODO: This will house all quest Fail Data  -->
+                    <TabItem Height="20" Width="146" Background="DarkGray" BorderBrush="Gray">Rewards</TabItem>                 <!-- TODO: This will house all Rewards Data -->
+                    <TabItem Height="20" Width="146" Background="DarkGray" BorderBrush="Gray">Gunsmith</TabItem>                <!-- TODO: This will house all Gunsmith Data (Unique)  -->
+                    <TabItem Height="20" Width="146" Background="DarkGray" BorderBrush="Gray">Saves</TabItem>                   <!-- TODO: This will house all Pre-made Gunsmith Presets (Unique)  -->
+                </TabPanel>
             </StackPanel>
         </StackPanel>
         <!-- Bottom Grid -->
