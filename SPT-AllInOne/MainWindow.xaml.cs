@@ -20,5 +20,6 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         Utils.test();
+        this.Close();
     }
 }
