@@ -53,8 +53,28 @@
                 </StackPanel>
             </StackPanel>
         </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
-            <Button>Test</Button>
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="3, 4">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="272" Height="20" Background="White" Margin="5, 0"></TextBlock>
+                <CheckBox Margin="5, 0" Width="240" IsChecked="True">Can Show Notification</CheckBox>
+                <CheckBox Margin="5, 0" Width="120">Requires Key</CheckBox>
+                <ComboBox Width="71" Height="20" Background="DarkGray" Margin="5, 0">Trader</ComboBox>
+                <TextBlock Width="272" Height="20" Background="White" Margin="5, 0"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0, 4">
+                <TextBlock Width="272" Height="20" Background="White" Margin="5, 0"></TextBlock>
+                <CheckBox Margin="5, 0" Width="240">Dynamic Locale</CheckBox>
+                <CheckBox Margin="5, 0" Width="120">Secret Quest</CheckBox>
+                <ComboBox Width="71" Height="20" Background="DarkGray" Margin="5, 0">Location</ComboBox>
+                <TextBlock Width="272" Height="20" Background="White" Margin="5, 0"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="272" Height="20" Background="White" Margin="5, 0"></TextBlock>
+                <CheckBox Margin="5, 0" Width="240">Restartable</CheckBox>
+                <CheckBox Margin="5, 0" Width="120">Instant Complete</CheckBox>
+                <ComboBox Width="71" Height="20" Background="DarkGray" Margin="5, 0">Side</ComboBox>
+                <ComboBox Width="272" Height="20" Background="DarkGray" Margin="5, 0">Type</ComboBox>
+            </StackPanel>
         </StackPanel>
         <!-- Bottom Grid -->
         <Menu Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Width="Auto" Height="28" Background="#FFA9D1F4" DockPanel.Dock="Bottom">
