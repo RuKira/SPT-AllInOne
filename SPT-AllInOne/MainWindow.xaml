@@ -5,47 +5,62 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SPT_AllInOne"
         mc:Ignorable="d"
-        Title="SPT-AllInOne" Height="1000" Width="1400" Background="Gray">
+        Title="SPT-AllInOne" Height="1000" Width="1400" Background="Gray" ResizeMode="CanMinimize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition />
+            <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Menu Grid.Row="0" Grid.ColumnSpan="3" Width="Auto" Height="20" Background="#FFdddddd" DockPanel.Dock="Top">
-            <MenuItem Header="Reference"/>
-            <MenuItem Header="Start Server"/>
-            <MenuItem Header="Stop Server"/>
-            <MenuItem Header="Options"/>
+        <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Width="Auto" Height="20" Background="#FFA9D1F4" DockPanel.Dock="Top">
+            <MenuItem Height="Auto" Width="Auto" Header="Reference"/> <!-- TODO: This should link to anything related to making quest, ID Searching, Quest Formatting, or Documentation on how this application works -->
+            <MenuItem Height="Auto" Width="Auto" Header="Start Server"/> <!-- TODO: This should simply run the Aki.Server.exe in the Server Folder | Export to Server Console-->
+            <MenuItem Height="Auto" Width="Auto" Header="Stop Server"/> <!-- TODO: This should stop the Aki.Server Service (Need Exact name) -->
+            <MenuItem Height="Auto" Width="Auto" Header="Options"/> <!-- TODO: This should allow you to setup locations, Server, Main Folder, etc -->
+            <MenuItem Height="Auto" Width="Auto" Header="Tools"></MenuItem> <!-- TODO: This will be dead for a bit, but will be used for the Trader Creation, and other things not related to this MainWindow -->
         </Menu>
-        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical" Margin="5,10">
-            <StackPanel x:Name="QuestFilePanel" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0">
-                <Button Margin="3" Height="24" Width="112">New Quest File</Button>
-                <Button Margin="3" Height="24" Width="112">Load Quest File</Button>
-                <Button Margin="3" Height="24" Width="112">Save Quest File</Button>
+        <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left">
+            <StackPanel x:Name="QuestFilePanel" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Button Margin="3" Height="24" Width="112" Background="DarkGray">New Quest File</Button>
+                <Button Margin="3" Height="24" Width="112" Background="DarkGray">Load Quest File</Button>
+                <Button Margin="3" Height="24" Width="112" Background="DarkGray">Save Quest File</Button>
             </StackPanel>
-            <StackPanel x:Name="TextBlockPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 0">
+            <StackPanel x:Name="TextBlockPanel" HorizontalAlignment="Left" VerticalAlignment="Top">
                 <TextBlock Background="White" Width="347" Height="20"></TextBlock>
                 <TextBlock Background="White" Width="347" Height="20" Margin="3"></TextBlock>
             </StackPanel>
+            <StackPanel x:Name="QuestPanel" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <StackPanel Orientation="Horizontal">
+                    <Button Margin="3" Height="24" Width="112" Background="DarkGray">New Quest</Button>
+                    <Label Margin="24, 3" Height="24" Width="70">Quest List</Label>
+                    <Button Margin="3" Height="24" Width="112" Background="DarkGray">Save Quest</Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Margin="3" Height="24" Width="112" Background="DarkGray">Edit Quest</Button>
+                    <Button Margin="3" Height="24" Width="112" Background="DarkGray">Duplicate Quest</Button>
+                    <Button Margin="3" Height="24" Width="112" Background="DarkGray">Remove Quest</Button>
+                </StackPanel>
+                <StackPanel>
+                    <ListBox Width="347" Height="200">Quest List</ListBox>
+                    <Button Width="347" Height="24" Background="DarkGray">Clear Console</Button>
+                    <ListBox Height="320" Width="348">Quest Error Console</ListBox>
+                    <ListBox Height="230" Width="348">Server Console</ListBox>
+                </StackPanel>
+            </StackPanel>
         </StackPanel>
-        
-        
-        
-        
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+            <Button>Test</Button>
+        </StackPanel>
         <!-- Bottom Grid -->
-        <Menu Grid.Row="2" Width="Auto" Height="20" Background="#FFA9D1F4" DockPanel.Dock="Bottom">
-            <MenuItem Header="https://github.com/RuKira/SPT-AllInOne"/>
-        
-            <MenuItem Header="ALPHA VERSION 0.0.1: REPORT ALL BUGS"/>
-        
-            <MenuItem Header="SPECIAL THANKS TO DIRTBIKERCJ"/>
-        
+        <Menu Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Width="Auto" Height="28" Background="#FFA9D1F4" DockPanel.Dock="Bottom">
+            <Label Height="Auto" Width="Auto">https://github.com/RuKira/SPT-AllInOne</Label>
+            <Label Height="Auto" Width="Auto" Margin="350, 0">ALPHA VERSION 0.0.1: REPORT ALL BUGS</Label>
+            <Label Height="Auto" Width="Auto">SPECIAL THANKS TO DIRTBIKERCJ</Label>
         </Menu>
     </Grid>
 </Window>
