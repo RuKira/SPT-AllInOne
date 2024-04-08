@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:SPT_AllInOne"
         mc:Ignorable="d"
         Title="SPT-AllInOne" Height="1000" Width="1400" Background="Gray" ResizeMode="CanMinimize">
+    <!-- TODO ORDER: x:Name - Grid.Row - Grid.Column - Grid.ColumnSpan - Margin - Width - Height - Background - Foreground - Alignment - Content/Text/Header -->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -114,27 +115,46 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <Label Grid.Row="0" Grid.Column="0" Margin="5" Content="Quest Requirement" Width="140" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left"></Label>
-                            <TextBox Grid.Row="1" Grid.Column="0" Margin="5" Foreground="LightGray" Background="White" Width="140" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left">Quest Id</TextBox>
-                            <ComboBox Grid.Row="2" Grid.Column="0" Margin="5" Background="DarkGray" Width="140" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left">Status</ComboBox>
-                            <CheckBox Grid.Row="1" Grid.Column="1" Margin="5" Width="140" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left">Dynamic Locale</CheckBox>
-                            <Button Grid.Row="1" Grid.Column="2" Background="DarkGray" Margin="5" Width="140" Height="25">Add</Button>
-                            <Button Grid.Row="2" Grid.Column="2" Background="DarkGray" Margin="5" Width="140" Height="25">Remove</Button>
-                            <TextBox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Height="171">Locale Data</TextBox>
-                            <Label Grid.Row="5" Grid.Column="0" Margin="5" Content="Trader Loyalty Requirements" Width="160" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left"></Label>
-                            <ComboBox Grid.Row="6" Grid.Column="0" Margin="5" Background="DarkGray" Width="140" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left">Trader</ComboBox>
-                            <ComboBox Grid.Row="7" Grid.Column="0" Margin="5" Background="DarkGray" Width="140" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left">Compare</ComboBox>
-                            <CheckBox Grid.Row="6" Grid.Column="1" Margin="5" Width="140" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left">Dynamic Locale</CheckBox>
-                            <TextBox Grid.Row="7" Grid.Column="1" Foreground="LightGray" Background="White" Width="100" Height="23" HorizontalAlignment="Left">0</TextBox>
-                            <Button Grid.Row="6" Grid.Column="2" Margin="5" Background="DarkGray" Width="140" Height="25">Add</Button>
-                            <Button Grid.Row="7" Grid.Column="2" Margin="5" Background="DarkGray" Width="140" Height="25">Remove</Button>
-                            <TextBox Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="3" Height="171">Locale Data</TextBox>
-                            <Label Grid.Row="10" Grid.Column="0" Margin="5" Content="Level Requirement" Width="140" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left"></Label>
-                            <TextBox Grid.Row="11" Grid.Column="0" Margin="5" Foreground="LightGray" Background="White" Width="140" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left">0</TextBox>
-                            <CheckBox Grid.Row="11" Grid.Column="1" Margin="5" Width="140" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left">Dynamic Locale</CheckBox>
-                            <ComboBox Grid.Row="11" Grid.Column="2" Margin="5" Background="DarkGray" Width="140" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left">Compare</ComboBox>
+                            <StackPanel Grid.Row="0" Grid.Column="0" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <Label Width="140" Height="25" Content="Quest Requirement"></Label>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Grid.Column="0" Margin="5" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <TextBox Margin="5" Width="140" Height="21" Foreground="LightGray" Background="White">Quest Id</TextBox>
+                                <CheckBox Margin="5" Width="140" Height="21">Dynamic Locale</CheckBox>
+                                <Button Margin="5" Width="140" Height="25" Background="DarkGray">Add</Button>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Grid.Column="0" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <ComboBox Margin="5" Width="140" Height="21" Background="DarkGray">Status</ComboBox>
+                                <Button Margin="155. 5" Width="140" Height="25" Background="DarkGray">Remove</Button>
+                            </StackPanel>
+                            <StackPanel Grid.Row="3" Grid.Column="0" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <TextBox Width="450" Height="171">Locale Data</TextBox>
+                            </StackPanel>
+                            <StackPanel Grid.Row="0" Grid.Column="1" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <Label Margin="5" Width="160" Height="25" Content="Trader Loyalty Requirements"></Label>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Grid.Column="1" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <ComboBox Margin="5" Width="140" Height="21" Background="DarkGray">Trader</ComboBox>
+                                <CheckBox Margin="5" Width="140" Height="21">Dynamic Locale</CheckBox>
+                                <Button Margin="5" Background="DarkGray" Width="140" Height="25">Add</Button>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Grid.Column="1" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <ComboBox Margin="5" Width="140" Height="21" Background="DarkGray">Compare</ComboBox>
+                                <TextBox Margin="5" Width="140" Height="23" Foreground="LightGray" Background="White">0</TextBox>
+                                <Button Margin="5" Background="DarkGray" Width="140" Height="25">Remove</Button>
+                            </StackPanel>
+                            <StackPanel Grid.Row="3" Grid.Column="1" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <TextBox Width="450" Height="171">Locale Data</TextBox>
+                            </StackPanel>
+                            <StackPanel Grid.Row="4" Grid.Column="0" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <Label Width="140" Height="25" Content="Level Requirement"></Label>
+                            </StackPanel>
+                            <StackPanel Grid.Row="5" Grid.Column="0" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <TextBox Margin="5" Width="140" Height="21" Foreground="LightGray" Background="White">0</TextBox>
+                                <CheckBox Margin="5" Width="140" Height="21">Dynamic Locale</CheckBox>
+                                <ComboBox Margin="5" Width="140" Height="21" Background="DarkGray">Compare</ComboBox>
+                            </StackPanel>
                         </Grid>
                     </TabItem>
                     <TabItem Height="20" Width="122" Background="DarkGray" BorderBrush="Gray" Header="Available For Finish">   <!-- TODO: This will house all Quest Finish Data -->
@@ -152,10 +172,10 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
-                                    <Label Grid.Row="0" Grid.Column="0" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Top">Loyalty</Label>
+                                    <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top">Loyalty</Label>
                                 
                                 
-                                    <Label Grid.Row="0" Grid.Column="1" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Top">Skill</Label>
+                                    <Label Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top">Skill</Label>
                                 </Grid>
                             </TabItem>
                             <TabItem Header="Items" Background="DarkGray" BorderBrush="Gray"/>
