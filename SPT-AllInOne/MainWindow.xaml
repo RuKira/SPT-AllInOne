@@ -116,14 +116,14 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <Label Grid.Row="0" Grid.Column="0" Margin="5" Content="Trader Loyalty Requirement" Width="160" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left"></Label>
+                            <Label Grid.Row="0" Grid.Column="0" Margin="5" Content="Quest Requirement" Width="140" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left"></Label>
                             <TextBox Grid.Row="1" Grid.Column="0" Margin="5" Foreground="LightGray" Background="White" Width="140" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left">Quest Id</TextBox>
                             <ComboBox Grid.Row="2" Grid.Column="0" Margin="5" Background="DarkGray" Width="140" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left">Status</ComboBox>
                             <CheckBox Grid.Row="1" Grid.Column="1" Margin="5" Width="140" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left">Dynamic Locale</CheckBox>
                             <Button Grid.Row="1" Grid.Column="2" Background="DarkGray" Margin="5" Width="140" Height="25">Add</Button>
                             <Button Grid.Row="2" Grid.Column="2" Background="DarkGray" Margin="5" Width="140" Height="25">Remove</Button>
                             <TextBox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Height="171">Locale Data</TextBox>
-                            <Label Grid.Row="5" Grid.Column="0" Margin="5" Content="Quest Requirement" Width="140" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left"></Label>
+                            <Label Grid.Row="5" Grid.Column="0" Margin="5" Content="Trader Loyalty Requirements" Width="160" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left"></Label>
                             <ComboBox Grid.Row="6" Grid.Column="0" Margin="5" Background="DarkGray" Width="140" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left">Trader</ComboBox>
                             <ComboBox Grid.Row="7" Grid.Column="0" Margin="5" Background="DarkGray" Width="140" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left">Compare</ComboBox>
                             <CheckBox Grid.Row="6" Grid.Column="1" Margin="5" Width="140" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left">Dynamic Locale</CheckBox>
