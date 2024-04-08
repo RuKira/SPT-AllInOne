@@ -95,16 +95,69 @@
                             <TextBox Grid.Row="2" Grid.Column="0" Margin="3" Foreground="LightGray" Text="Note"/>
                         </Grid>
                     </TabItem>
-                    <TabItem Height="20" Width="122" Background="DarkGray" BorderBrush="Gray" Header="Available For Start"/>    <!-- TODO: This will house all Quest Start Data -->
-                    <TabItem Height="20" Width="122" Background="DarkGray" BorderBrush="Gray" Header="Kills Editor"/>           <!-- TODO: This will house all Kill Requirement Data (Unique) -->
-                    <TabItem Height="20" Width="122" Background="DarkGray" BorderBrush="Gray" Header="Available For Finish"/>   <!-- TODO: This will house all Quest Finish Data -->
-                    <TabItem Height="20" Width="122" Background="DarkGray" BorderBrush="Gray" Header="Fail"/>                   <!-- TODO: This will house all quest Fail Data  -->
-                    <TabItem Height="20" Width="122" Background="DarkGray" BorderBrush="Gray" Header="Rewards"/>                <!-- TODO: This will house all Rewards Data -->
-                    <TabItem Height="20" Width="122" Background="DarkGray" BorderBrush="Gray" Header="Gunsmith"/>               <!-- TODO: This will house all Gunsmith Data (Unique)  -->
-                    <TabItem Height="20" Width="122" Background="DarkGray" BorderBrush="Gray" Header="Saves"/>                  <!-- TODO: This will house all Pre-made Gunsmith Presets (Unique)  -->
+                    <TabItem Height="20" Width="122" Background="DarkGray" BorderBrush="Gray" Header="Available For Start">    <!-- TODO: This will house all Quest Start Data -->
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" Margin="5" Content="Trader Loyalty Requirement" Width="160" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left"></Label>
+                            <TextBox Grid.Row="1" Grid.Column="0" Margin="5" Foreground="LightGray" Background="White" Width="140" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left">Quest Id</TextBox>
+                            <ComboBox Grid.Row="2" Grid.Column="0" Margin="5" Background="DarkGray" Width="140" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left">Status</ComboBox>
+                            <CheckBox Grid.Row="1" Grid.Column="1" Margin="5" Width="140" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left">Dynamic Locale</CheckBox>
+                            <Button Grid.Row="1" Grid.Column="2" Background="DarkGray" Margin="5" Width="140" Height="25">Add</Button>
+                            <Button Grid.Row="2" Grid.Column="2" Background="DarkGray" Margin="5" Width="140" Height="25">Remove</Button>
+                            <TextBox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Height="171">Locale Data</TextBox>
+                            <Label Grid.Row="5" Grid.Column="0" Margin="5" Content="Quest Requirement" Width="140" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left"></Label>
+                            <ComboBox Grid.Row="6" Grid.Column="0" Margin="5" Background="DarkGray" Width="140" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left">Trader</ComboBox>
+                            <ComboBox Grid.Row="7" Grid.Column="0" Margin="5" Background="DarkGray" Width="140" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left">Compare</ComboBox>
+                            <CheckBox Grid.Row="6" Grid.Column="1" Margin="5" Width="140" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left">Dynamic Locale</CheckBox>
+                            <TextBox Grid.Row="7" Grid.Column="1" Foreground="LightGray" Background="White" Width="100" Height="23" HorizontalAlignment="Left">0</TextBox>
+                            <Button Grid.Row="6" Grid.Column="2" Margin="5" Background="DarkGray" Width="140" Height="25">Add</Button>
+                            <Button Grid.Row="7" Grid.Column="2" Margin="5" Background="DarkGray" Width="140" Height="25">Remove</Button>
+                            <TextBox Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="3" Height="171">Locale Data</TextBox>
+                            <Label Grid.Row="10" Grid.Column="0" Margin="5" Content="Level Requirement" Width="140" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left"></Label>
+                            <TextBox Grid.Row="11" Grid.Column="0" Margin="5" Foreground="LightGray" Background="White" Width="140" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left">0</TextBox>
+                            <CheckBox Grid.Row="11" Grid.Column="1" Margin="5" Width="140" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left">Dynamic Locale</CheckBox>
+                            <ComboBox Grid.Row="11" Grid.Column="2" Margin="5" Background="DarkGray" Width="140" Height="21" VerticalAlignment="Top" HorizontalAlignment="Left">Compare</ComboBox>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Height="20" Width="122" Background="DarkGray" BorderBrush="Gray" Header="Kills Editor">           <!-- TODO: This will house all Kill Requirement Data (Unique) -->
+                        <TextBlock Height="20" Width="200" Text="Currently Under Construction"></TextBlock>
+                    </TabItem>
+                    <TabItem Height="20" Width="122" Background="DarkGray" BorderBrush="Gray" Header="Available For Finish">   <!-- TODO: This will house all Quest Finish Data -->
+                        
+                    </TabItem>
+                    <TabItem Height="20" Width="122" Background="DarkGray" BorderBrush="Gray" Header="Fail">                   <!-- TODO: This will house all quest Fail Data  -->
+                        
+                    </TabItem>
+                    <TabItem Height="20" Width="122" Background="DarkGray" BorderBrush="Gray" Header="Rewards">                <!-- TODO: This will house all Rewards Data -->
+                        
+                    </TabItem>
+                    <TabItem Height="20" Width="122" Background="DarkGray" BorderBrush="Gray" Header="Gunsmith">               <!-- TODO: This will house all Gunsmith Data (Unique)  -->
+                        <TextBlock Height="20" Width="200" Text="Not Available in 0.0.1-Alpha"></TextBlock>
+                    </TabItem>
+                    <TabItem Height="20" Width="122" Background="DarkGray" BorderBrush="Gray" Header="Saves">                  <!-- TODO: This will house all Pre-made Gunsmith Presets (Unique)  -->
+                        <TextBlock Height="20" Width="200" Text="Not Available in 0.0.1-Alpha"></TextBlock>
+                    </TabItem>
                 </TabControl>
-                </StackPanel>
             </StackPanel>
+        </StackPanel>
         <!-- Bottom Grid -->
         <Menu Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Width="Auto" Height="28" Background="#FFA9D1F4" DockPanel.Dock="Bottom">
             <Label Height="Auto" Width="Auto">https://github.com/RuKira/SPT-AllInOne</Label>
