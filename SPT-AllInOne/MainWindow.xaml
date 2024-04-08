@@ -30,8 +30,8 @@
                 <Button Margin="3" Height="24" Width="112" Background="DarkGray">Save Quest File</Button>
             </StackPanel>
             <StackPanel x:Name="TextBlockPanel" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <TextBlock Background="White" Width="347" Height="20"></TextBlock>
-                <TextBlock Background="White" Width="347" Height="20" Margin="3"></TextBlock>
+                <TextBlock Background="White" Width="347" Height="20" Foreground="LightGray">Loaded File Path</TextBlock>
+                <TextBlock Background="White" Width="347" Height="20" Margin="3" Foreground="LightGray">Loaded Locale Path</TextBlock>
             </StackPanel>
             <StackPanel x:Name="QuestPanel" HorizontalAlignment="Left" VerticalAlignment="Top">
                 <StackPanel Orientation="Horizontal">
@@ -45,30 +45,31 @@
                     <Button Margin="3" Height="24" Width="112" Background="DarkGray">Remove Quest</Button>
                 </StackPanel>
                 <StackPanel>
+                    <TextBlock Margin="0, 2" Width="347" Height="24" Foreground="LightGray" Background="White">Current Quest</TextBlock>
                     <ListBox Width="347" Height="200">Quest List</ListBox>
                     <Button Width="347" Height="24" Background="DarkGray">Clear Console</Button>
-                    <ListBox Height="320" Width="348">Quest Error Console</ListBox>
-                    <ListBox Height="230" Width="348">Server Console</ListBox>
+                    <TextBlock Height="320" Width="348" Background="White" Margin="3">Quest Error Console</TextBlock>
+                    <TextBlock Height="230" Width="348" Background="White">Server Console</TextBlock>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="3, 4">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Width="272" Height="20" Background="White" Margin="5, 0"></TextBlock>
+                <TextBox Width="272" Height="20" Background="White" Margin="5, 0" Foreground="LightGray">_id</TextBox>
                 <CheckBox Margin="5, 0" Width="240" IsChecked="True">Can Show Notification</CheckBox>
                 <CheckBox Margin="5, 0" Width="120">Requires Key</CheckBox>
                 <ComboBox Width="71" Height="20" Background="DarkGray" Margin="5, 0">Trader</ComboBox>
-                <TextBlock Width="272" Height="20" Background="White" Margin="5, 0"></TextBlock>
+                <TextBox Width="272" Height="20" Background="White" Margin="5, 0" Foreground="LightGray">Trader Id Override</TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0, 4">
-                <TextBlock Width="272" Height="20" Background="White" Margin="5, 0"></TextBlock>
+                <TextBox Width="272" Height="20" Background="White" Margin="5, 0" Foreground="LightGray">Quest Name</TextBox>
                 <CheckBox Margin="5, 0" Width="240">Dynamic Locale</CheckBox>
                 <CheckBox Margin="5, 0" Width="120">Secret Quest</CheckBox>
                 <ComboBox Width="71" Height="20" Background="DarkGray" Margin="5, 0">Location</ComboBox>
-                <TextBlock Width="272" Height="20" Background="White" Margin="5, 0"></TextBlock>
+                <TextBox Width="272" Height="20" Background="White" Margin="5, 0" Foreground="LightGray">Location Id Override</TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Width="272" Height="20" Background="White" Margin="5, 0"></TextBlock>
+                <TextBox Width="272" Height="20" Background="White" Margin="5, 0" Foreground="Red">Placeholder.png</TextBox>
                 <CheckBox Margin="5, 0" Width="240">Restartable</CheckBox>
                 <CheckBox Margin="5, 0" Width="120">Instant Complete</CheckBox>
                 <ComboBox Width="71" Height="20" Background="DarkGray" Margin="5, 0">Side</ComboBox>
@@ -81,23 +82,26 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <TextBox Grid.Row="0" Grid.Column="0" Margin="3"/>
-                            <TextBox Grid.Row="1" Grid.Column="0" Margin="3"/>
-                            <TextBox Grid.Row="0" Grid.Column="1" Margin="3"/>
-                            <TextBox Grid.Row="1" Grid.Column="1" Margin="3"/>
+                            <TextBox Grid.Row="0" Grid.Column="0" Margin="3" Foreground="LightGray" Text="Description (Same as Start and Accept Message)"/>
+                            <TextBox Grid.Row="1" Grid.Column="0" Margin="3" Foreground="LightGray" Text="Fail Message"/>
+                            <TextBox Grid.Row="0" Grid.Column="1" Margin="3" Foreground="LightGray" Text="Success Message (Same as Complete Message"/>
+                            <TextBox Grid.Row="1" Grid.Column="1" Margin="3" Foreground="LightGray" Text="Change Message"/>
+                            <TextBox Grid.Row="2" Grid.Column="0" Margin="3" Foreground="LightGray" Text="Note"/>
                         </Grid>
                     </TabItem>
-                    <TabItem Height="20" Width="140" Background="DarkGray" BorderBrush="Gray" Header="Available For Start"/>    <!-- TODO: This will house all Quest Start Data -->
-                    <TabItem Height="20" Width="140" Background="DarkGray" BorderBrush="Gray" Header="Available For Finish"/>   <!-- TODO: This will house all Quest Finish Data -->
-                    <TabItem Height="20" Width="140" Background="DarkGray" BorderBrush="Gray" Header="Fail"/>                   <!-- TODO: This will house all quest Fail Data  -->
-                    <TabItem Height="20" Width="140" Background="DarkGray" BorderBrush="Gray" Header="Rewards"/>                <!-- TODO: This will house all Rewards Data -->
-                    <TabItem Height="20" Width="140" Background="DarkGray" BorderBrush="Gray" Header="Gunsmith"/>               <!-- TODO: This will house all Gunsmith Data (Unique)  -->
-                    <TabItem Height="20" Width="140" Background="DarkGray" BorderBrush="Gray" Header="Saves"/>                  <!-- TODO: This will house all Pre-made Gunsmith Presets (Unique)  -->
+                    <TabItem Height="20" Width="122" Background="DarkGray" BorderBrush="Gray" Header="Available For Start"/>    <!-- TODO: This will house all Quest Start Data -->
+                    <TabItem Height="20" Width="122" Background="DarkGray" BorderBrush="Gray" Header="Kills Editor"/>           <!-- TODO: This will house all Kill Requirement Data (Unique) -->
+                    <TabItem Height="20" Width="122" Background="DarkGray" BorderBrush="Gray" Header="Available For Finish"/>   <!-- TODO: This will house all Quest Finish Data -->
+                    <TabItem Height="20" Width="122" Background="DarkGray" BorderBrush="Gray" Header="Fail"/>                   <!-- TODO: This will house all quest Fail Data  -->
+                    <TabItem Height="20" Width="122" Background="DarkGray" BorderBrush="Gray" Header="Rewards"/>                <!-- TODO: This will house all Rewards Data -->
+                    <TabItem Height="20" Width="122" Background="DarkGray" BorderBrush="Gray" Header="Gunsmith"/>               <!-- TODO: This will house all Gunsmith Data (Unique)  -->
+                    <TabItem Height="20" Width="122" Background="DarkGray" BorderBrush="Gray" Header="Saves"/>                  <!-- TODO: This will house all Pre-made Gunsmith Presets (Unique)  -->
                 </TabControl>
                 </StackPanel>
             </StackPanel>
