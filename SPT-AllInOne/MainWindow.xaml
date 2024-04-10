@@ -33,8 +33,8 @@
                 <Button Margin="3" Width="112" Background="#332940">Save Quest File</Button>
             </StackPanel>
             <StackPanel x:Name="TextBlockPanel" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <TextBlock Margin="3" Background="#1F1A24" Width="347" Foreground="LightGray">Loaded File Path</TextBlock>
-                <TextBlock Background="#1F1A24" Width="347" Margin="3" Foreground="LightGray">Loaded Locale Path</TextBlock>
+                <TextBlock Margin="3" Background="#1F1A24" Width="347" Foreground="#FFFFFF">Loaded File Path</TextBlock>
+                <TextBlock Background="#1F1A24" Width="347" Margin="3" Foreground="#FFFFFF">Loaded Locale Path</TextBlock>
             </StackPanel>
             <StackPanel x:Name="QuestPanel" HorizontalAlignment="Left" VerticalAlignment="Top">
                 <StackPanel Orientation="Horizontal">
@@ -48,33 +48,33 @@
                     <Button Margin="3" Width="112" Background="#332940">Remove Quest</Button>
                 </StackPanel>
                 <StackPanel>
-                    <TextBlock Margin="3" Width="347" Foreground="LightGray" Background="#1F1A24">Current Quest</TextBlock>
-                    <ListBox Margin="3" Width="347" Height="400" Background="#1F1A24">Quest List</ListBox>
-                    <Button Margin="3" Width="347" Background="#332940">Clear Console</Button>
-                    <TextBlock Height="320" Width="348" Background="#1F1A24" Margin="3">Quest Error Console</TextBlock>
+                    <TextBlock Margin="3" Width="347" Foreground="#FFFFFF" Background="#1F1A24">Current Quest</TextBlock>
+                    <ListBox Margin="3" Width="347" Height="400" Background="#1F1A24" Foreground="#FFFFFF">Quest List</ListBox>
+                    <Button Margin="3" Width="347" Background="#332940" Foreground="#FFFFFF">Clear Console</Button>
+                    <TextBlock Height="320" Width="348" Background="#1F1A24" Margin="3" Foreground="#FFFFFF">Quest Error Console</TextBlock>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="3, 4">
             <StackPanel Orientation="Horizontal">
-                <TextBox Width="272" Background="#1F1A24" Margin="5, 0" Foreground="LightGray">_id</TextBox>
-                <CheckBox Margin="5, 0" Width="240" IsChecked="True" Foreground="White">Can Show Notification</CheckBox>
-                <CheckBox Margin="5, 0" Width="120" Foreground="White">Requires Key</CheckBox>
-                <ComboBox Width="71" Background="#332940" Margin="5, 0">Trader</ComboBox>
-                <TextBox Width="272" Background="#1F1A24" Margin="5, 0" Foreground="LightGray">Trader Id Override</TextBox>
+                <TextBox Width="272" Background="#1F1A24" Margin="5, 0" Foreground="#FFFFFF">_id</TextBox>
+                <CheckBox Margin="5, 0" Width="150" IsChecked="True" Foreground="#FFFFFF">Can Show Notification</CheckBox>
+                <CheckBox Margin="5, 0" Width="140" Foreground="#FFFFFF">Requires Key</CheckBox>
+                <ComboBox Width="151" Background="#332940" Margin="5, 0">Trader</ComboBox>
+                <TextBox Width="272" Background="#1F1A24" Margin="5, 0" Foreground="#FFFFFF">Trader Id Override</TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0, 4">
-                <TextBox Width="272" Background="#1F1A24" Margin="5, 0" Foreground="LightGray">Quest Name</TextBox>
-                <CheckBox Margin="5, 0" Width="240" Foreground="White">Dynamic Locale</CheckBox>
-                <CheckBox Margin="5, 0" Width="120" Foreground="White">Secret Quest</CheckBox>
-                <ComboBox Width="71" Background="#332940" Margin="5, 0">Location</ComboBox>
-                <TextBox Width="272" Background="#1F1A24" Margin="5, 0" Foreground="LightGray">Location Id Override</TextBox>
+                <TextBox Width="272" Background="#1F1A24" Margin="5, 0" Foreground="#FFFFFF">Quest Name</TextBox>
+                <CheckBox Margin="5, 0" Width="150" Foreground="#FFFFFF">Dynamic Locale</CheckBox>
+                <CheckBox Margin="5, 0" Width="140" Foreground="#FFFFFF">Secret Quest</CheckBox>
+                <ComboBox Width="151" Background="#332940" Margin="5, 0">Location</ComboBox>
+                <TextBox Width="272" Background="#1F1A24" Margin="5, 0" Foreground="#FFFFFF">Location Id Override</TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBox Width="272" Background="#1F1A24" Margin="5, 0" Foreground="Red">Placeholder.png</TextBox>
-                <CheckBox Margin="5, 0" Width="240" Foreground="White">Restartable</CheckBox>
-                <CheckBox Margin="5, 0" Width="120" Foreground="White">Instant Complete</CheckBox>
-                <ComboBox Width="71" Background="#332940" Margin="5, 0">Side</ComboBox>
+                <CheckBox Margin="5, 0" Width="150" Foreground="#FFFFFF">Restartable</CheckBox>
+                <CheckBox Margin="5, 0" Width="140" Foreground="#FFFFFF">Instant Complete</CheckBox>
+                <ComboBox Width="151" Background="#332940" Margin="5, 0">Side</ComboBox>
                 <ComboBox Width="272" Background="#332940" Margin="5, 0">Type</ComboBox>
             </StackPanel>
             <StackPanel Height="830" Margin="4">
@@ -118,43 +118,43 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Row="0" Grid.Column="0" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
-                                <Label Width="140" Height="25" Content="Quest Requirement"></Label>
+                                <Label Width="140" Height="Auto" Content="Quest Requirement" Foreground="#FFFFFF"/>
                             </StackPanel>
                             <StackPanel Grid.Row="1" Grid.Column="0" Margin="5" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
-                                <TextBox Margin="5" Width="140" Height="21" Foreground="LightGray" Background="White">Quest Id</TextBox>
-                                <CheckBox Margin="5" Width="140" Height="21">Dynamic Locale</CheckBox>
-                                <Button Margin="5" Width="140" Height="25" Background="DarkGray">Add</Button>
+                                <TextBox Margin="5" Width="140" Height="Auto" Foreground="LightGray" Background="#1F1A24">Quest Id</TextBox>
+                                <CheckBox Margin="5" Width="140" Height="Auto" Foreground="#FFFFFF">Dynamic Locale</CheckBox>
+                                <Button Margin="5" Width="140" Height="Auto" Background="#332940">Add</Button>
                             </StackPanel>
                             <StackPanel Grid.Row="2" Grid.Column="0" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
-                                <ComboBox Margin="5" Width="140" Height="21" Background="DarkGray">Status</ComboBox>
-                                <Button Margin="155. 5" Width="140" Height="25" Background="DarkGray">Remove</Button>
+                                <ComboBox Margin="5" Width="140" Height="Auto" Background="#332940">Status</ComboBox>
+                                <Button Margin="155. 5" Width="140" Height="Auto" Background="#332940">Remove</Button>
                             </StackPanel>
                             <StackPanel Grid.Row="3" Grid.Column="0" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
-                                <TextBox Width="450" Height="171">Locale Data</TextBox>
+                                <TextBox Width="450" Height="171" Foreground="#FFFFFF">Locale Data</TextBox>
                             </StackPanel>
                             <StackPanel Grid.Row="0" Grid.Column="1" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
-                                <Label Margin="5" Width="160" Height="25" Content="Trader Loyalty Requirements"></Label>
+                                <Label Margin="5" Width="160" Height="Auto" Content="Trader Loyalty Requirements" Foreground="#FFFFFF"/>
                             </StackPanel>
                             <StackPanel Grid.Row="1" Grid.Column="1" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
-                                <ComboBox Margin="5" Width="140" Height="21" Background="DarkGray">Trader</ComboBox>
-                                <CheckBox Margin="5" Width="140" Height="21">Dynamic Locale</CheckBox>
-                                <Button Margin="5" Background="DarkGray" Width="140" Height="25">Add</Button>
+                                <ComboBox Margin="5" Width="140" Height="Auto" Background="#332940">Trader</ComboBox>
+                                <CheckBox Margin="5" Width="140" Height="Auto" Foreground="#FFFFFF">Dynamic Locale</CheckBox>
+                                <Button Margin="5" Background="#332940" Width="140" Height="Auto">Add</Button>
                             </StackPanel>
                             <StackPanel Grid.Row="2" Grid.Column="1" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
-                                <ComboBox Margin="5" Width="140" Height="21" Background="DarkGray">Compare</ComboBox>
-                                <TextBox Margin="5" Width="140" Height="23" Foreground="LightGray" Background="White">0</TextBox>
-                                <Button Margin="5" Background="DarkGray" Width="140" Height="25">Remove</Button>
+                                <ComboBox Margin="5" Width="140" Height="Auto" Background="#332940">Compare</ComboBox>
+                                <TextBox Margin="5" Width="140" Height="Auto" Foreground="LightGray" Background="#1F1A24">0</TextBox>
+                                <Button Margin="5" Background="#332940" Width="140" Height="Auto">Remove</Button>
                             </StackPanel>
                             <StackPanel Grid.Row="3" Grid.Column="1" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
-                                <TextBox Width="450" Height="171">Locale Data</TextBox>
+                                <TextBox Width="450" Height="171" Foreground="#FFFFFF">Locale Data</TextBox>
                             </StackPanel>
                             <StackPanel Grid.Row="4" Grid.Column="0" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
-                                <Label Width="140" Height="25" Content="Level Requirement"></Label>
+                                <Label Width="140" Height="Auto" Content="Level Requirement" Foreground="#FFFFFF"/>
                             </StackPanel>
                             <StackPanel Grid.Row="5" Grid.Column="0" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
-                                <TextBox Margin="5" Width="140" Height="21" Foreground="LightGray" Background="White">0</TextBox>
-                                <CheckBox Margin="5" Width="140" Height="21">Dynamic Locale</CheckBox>
-                                <ComboBox Margin="5" Width="140" Height="21" Background="DarkGray">Compare</ComboBox>
+                                <TextBox Margin="5" Width="140" Height="Auto" Foreground="LightGray" Background="#1F1A24">0</TextBox>
+                                <CheckBox Margin="5" Width="140" Height="Auto" Foreground="#FFFFFF">Dynamic Locale</CheckBox>
+                                <ComboBox Margin="5" Width="140" Height="Auto" Background="#332940">Compare</ComboBox>
                             </StackPanel>
                         </Grid>
                     </TabItem>
