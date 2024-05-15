@@ -1,4 +1,5 @@
 using System.Text;
+using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -20,6 +21,8 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         // Utils.test();
-        // this.Close();
+        List<Quest> quests = Utils.readQuestsFile("quests.json");
+        // Console.WriteLine(JsonSerializer.Serialize(quests[0]));
+        Close();
     }
 }
