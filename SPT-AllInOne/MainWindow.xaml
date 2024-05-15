@@ -3,9 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ui="http://schemas.modernwpf.com/2019"
         xmlns:local="clr-namespace:SPT_AllInOne"
         mc:Ignorable="d"
-        Title="SPT-AllInOne" Height="1000" Width="1400" Background="Gray" ResizeMode="CanMinimize">
+        Title="SPT-AllInOne" Height="1000" Width="1400" Background="#121212" ResizeMode="CanMinimize" SizeToContent="Height" WindowStartupLocation="CenterScreen"
+        ui:WindowHelper.UseModernWindowStyle="True">
+    <!-- TODO ORDER: x:Name - Grid.Row - Grid.Column - Grid.ColumnSpan - Margin - Width - Height - Background - Foreground - Alignment - Content/Text/Header -->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -16,69 +19,81 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Width="Auto" Height="20" Background="#FFA9D1F4" DockPanel.Dock="Top">
-            <MenuItem Height="Auto" Width="Auto" Header="Reference"/>           <!-- TODO: This should link to anything related to making quest, ID Searching, Quest Formatting, or Documentation on how this application works -->
-            <MenuItem Height="Auto" Width="Auto" Header="Start Server"/>        <!-- TODO: This should simply run the Aki.Server.exe in the Server Folder | Export to Server Console-->
-            <MenuItem Height="Auto" Width="Auto" Header="Stop Server"/>         <!-- TODO: This should stop the Aki.Server Service (Need Exact name) -->
-            <MenuItem Height="Auto" Width="Auto" Header="Options"/>             <!-- TODO: This should allow you to setup locations, Server, Main Folder, etc -->
-            <MenuItem Height="Auto" Width="Auto" Header="Tools"></MenuItem>     <!-- TODO: This will be dead for a bit, but will be used for the Trader Creation, and other things not related to this MainWindow -->
+        <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Width="Auto" Height="20" Background="#3700B3" DockPanel.Dock="Top">
+            <MenuItem Height="Auto" Width="Auto" Header="_Reference">                                                       <!-- TODO: This should link to anything related to making quest, ID Searching, Quest Formatting, or Documentation on how this application works -->
+                <MenuItem Height="Auto" Width="Auto" Header="Quest Reference"/>                                             <!-- TODO: Virtual Documentation -->
+                <MenuItem Height="Auto" Width="Auto" Header="Application Documentation"/>                                   <!-- TODO: Create It -->
+            </MenuItem>
+            <MenuItem Height="Auto" Width="Auto" Header="_Server">
+                <MenuItem Height="Auto" Width="Auto" Header="Start Server" ToolTip="This will start the Aki.Server Service"/>
+                <MenuItem Height="Auto" Width="Auto" Header="Stop Server" ToolTip="This will Stop the Aki.Server Service"/>
+            </MenuItem>
+            <MenuItem Height="Auto" Width="Auto" Header="_Options">                                                         <!-- TODO: This should allow you to setup locations, Server, Main Folder, etc -->
+                <MenuItem Height="Auto" Width="Auto" Header="Server Location" ToolTip="This is normally under AKI/Server"/>
+                <MenuItem Height="Auto" Width="Auto" Header="Quest Location" ToolTip="I recommend putting this in a Quest Loader, AKI/Server/User/Mods/Quest Loader/Database"/>
+            </MenuItem>
+            <MenuItem Height="Auto" Width="Auto" Header="_Tools">                                                           <!-- TODO: This will be dead for a bit, but will be used for the Trader Creation, and other things not related to this MainWindow -->
+                <MenuItem Height="Auto" Width="Auto" Header="Trader Creator (Disabled)"/>                                   <!-- TODO: Easy tool to create a custom trader -->
+                <MenuItem Height="Auto" Width="Auto" Header="Configuration Editor (Disabled)"/>                             <!-- TODO: Think of SVM, but... more in depth -->
+            </MenuItem>
         </Menu>
         <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left">
             <StackPanel x:Name="QuestFilePanel" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <Button Margin="3" Height="24" Width="112" Background="DarkGray">New Quest File</Button>
-                <Button Margin="3" Height="24" Width="112" Background="DarkGray">Load Quest File</Button>
-                <Button Margin="3" Height="24" Width="112" Background="DarkGray">Save Quest File</Button>
+                <Button Margin="3" Width="112" Background="#332940">New Quest File</Button>
+                <Button Margin="3" Width="117" Background="#332940">Load Quest File</Button>
+                <Button Margin="3" Width="112" Background="#332940">Save Quest File</Button>
             </StackPanel>
             <StackPanel x:Name="TextBlockPanel" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <TextBlock Background="White" Width="347" Height="20"></TextBlock>
-                <TextBlock Background="White" Width="347" Height="20" Margin="3"></TextBlock>
+                <TextBlock Margin="3" Height="20" Background="#1F1A24" Width="352" Foreground="#FFFFFF">Loaded File Path</TextBlock>
+                <TextBlock Background="#1F1A24" Height="20" Width="352" Margin="3" Foreground="#FFFFFF">Loaded Locale Path</TextBlock>
             </StackPanel>
             <StackPanel x:Name="QuestPanel" HorizontalAlignment="Left" VerticalAlignment="Top">
                 <StackPanel Orientation="Horizontal">
-                    <Button Margin="3" Height="24" Width="112" Background="DarkGray">New Quest</Button>
-                    <Label Margin="24, 3" Height="24" Width="70">Quest List</Label>
-                    <Button Margin="3" Height="24" Width="112" Background="DarkGray">Save Quest</Button>
+                    <Button Margin="3" Width="112" Background="#332940">New Quest</Button>
+                    <Label Margin="24, 3" Width="75" Foreground="White">Quest List</Label>
+                    <Button Margin="3" Width="112" Background="#332940">Save Quest</Button>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Button Margin="3" Height="24" Width="112" Background="DarkGray">Edit Quest</Button>
-                    <Button Margin="3" Height="24" Width="112" Background="DarkGray">Duplicate Quest</Button>
-                    <Button Margin="3" Height="24" Width="112" Background="DarkGray">Remove Quest</Button>
+                    <Button Margin="3" Width="112" Background="#332940">Edit Quest</Button>
+                    <Button Margin="3" Width="117" Background="#332940">Duplicate Quest</Button>
+                    <Button Margin="3" Width="112" Background="#332940">Remove Quest</Button>
                 </StackPanel>
                 <StackPanel>
-                    <ListBox Width="347" Height="200">Quest List</ListBox>
-                    <Button Width="347" Height="24" Background="DarkGray">Clear Console</Button>
-                    <ListBox Height="320" Width="348">Quest Error Console</ListBox>
-                    <ListBox Height="230" Width="348">Server Console</ListBox>
+                    <TextBlock Margin="3" Height="20" Width="347" Foreground="#FFFFFF" Background="#1F1A24">Current Quest</TextBlock>
+                    <ListBox Margin="3" Width="347" Height="400" Background="#1F1A24" Foreground="#FFFFFF">Quest List</ListBox>
+                    <Button Margin="3" Width="347" Background="#332940" Foreground="#FFFFFF">Clear Console</Button>
+                    <TextBlock Height="320" Width="348" Background="#1F1A24" Margin="3" Foreground="#FFFFFF">Quest Error Console</TextBlock>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="3, 4">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Width="272" Height="20" Background="White" Margin="5, 0"></TextBlock>
-                <CheckBox Margin="5, 0" Width="240" IsChecked="True">Can Show Notification</CheckBox>
-                <CheckBox Margin="5, 0" Width="120">Requires Key</CheckBox>
-                <ComboBox Width="71" Height="20" Background="DarkGray" Margin="5, 0">Trader</ComboBox>
-                <TextBlock Width="272" Height="20" Background="White" Margin="5, 0"></TextBlock>
+                <TextBox Width="272" Background="#1F1A24" BorderBrush="#1F1A24" Margin="5, 0" Foreground="#FFFFFF">_id</TextBox>
+                <CheckBox Margin="5, 0" Width="150" IsChecked="True" Foreground="#FFFFFF">Can Show Notification</CheckBox>
+                <CheckBox Margin="5, 0" Width="140" Foreground="#FFFFFF">Requires Key</CheckBox>
+                <ComboBox Width="151" Background="#332940" BorderBrush="#1F1A24" Margin="5, 0">Trader</ComboBox>
+                <TextBox Width="272" Background="#1F1A24" BorderBrush="#1F1A24" Margin="5, 0" Foreground="#FFFFFF">Trader Id Override</TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0, 4">
-                <TextBlock Width="272" Height="20" Background="White" Margin="5, 0"></TextBlock>
-                <CheckBox Margin="5, 0" Width="240">Dynamic Locale</CheckBox>
-                <CheckBox Margin="5, 0" Width="120">Secret Quest</CheckBox>
-                <ComboBox Width="71" Height="20" Background="DarkGray" Margin="5, 0">Location</ComboBox>
-                <TextBlock Width="272" Height="20" Background="White" Margin="5, 0"></TextBlock>
+                <TextBox Width="272" Background="#1F1A24" BorderBrush="#1F1A24" Margin="5, 0" Foreground="#FFFFFF">Quest Name</TextBox>
+                <CheckBox Margin="5, 0" Width="150" Foreground="#FFFFFF">Dynamic Locale</CheckBox>
+                <CheckBox Margin="5, 0" Width="140" Foreground="#FFFFFF">Secret Quest</CheckBox>
+                <ComboBox Width="151" Background="#332940" BorderBrush="#1F1A24" Margin="5, 0">Location</ComboBox>
+                <TextBox Width="272" Background="#1F1A24" BorderBrush="#1F1A24" Margin="5, 0" Foreground="#FFFFFF">Location Id Override</TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Width="272" Height="20" Background="White" Margin="5, 0"></TextBlock>
-                <CheckBox Margin="5, 0" Width="240">Restartable</CheckBox>
-                <CheckBox Margin="5, 0" Width="120">Instant Complete</CheckBox>
-                <ComboBox Width="71" Height="20" Background="DarkGray" Margin="5, 0">Side</ComboBox>
-                <ComboBox Width="272" Height="20" Background="DarkGray" Margin="5, 0">Type</ComboBox>
+                <TextBox Width="272" Background="#1F1A24" BorderBrush="#1F1A24" Margin="5, 0" Foreground="Red">Placeholder.png</TextBox>
+                <CheckBox Margin="5, 0" Width="150" Foreground="#FFFFFF">Restartable</CheckBox>
+                <CheckBox Margin="5, 0" Width="140" Foreground="#FFFFFF">Instant Complete</CheckBox>
+                <ComboBox Width="151" Background="#332940" BorderBrush="#1F1A24" Margin="5, 0">Side</ComboBox>
+                <ComboBox Width="272" Background="#332940" BorderBrush="#1F1A24" Margin="5, 0">Type</ComboBox>
             </StackPanel>
             <StackPanel Height="830" Margin="4">
-                <TabControl Height="830" Background="White"> <!-- TODO: This Tab Panel is not working, or is used incorrectly, research into an actual Tab Panel -->
-                    <TabItem Height="20" Width="140" Background="DarkGray" BorderBrush="Gray" Header="Locales">                 <!-- TODO: This will house all Locale Data -->
+                <TabControl Height="830" Background="#332940">
+                    <TabItem Height="Auto" Width="60" Background="#FFA9D1F4" Header="Locales">
                         <Grid>
                             <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
@@ -86,26 +101,127 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <TextBox Grid.Row="0" Grid.Column="0" Margin="3"/>
-                            <TextBox Grid.Row="1" Grid.Column="0" Margin="3"/>
-                            <TextBox Grid.Row="0" Grid.Column="1" Margin="3"/>
-                            <TextBox Grid.Row="1" Grid.Column="1" Margin="3"/>
+                            <TextBox Grid.Row="0" Grid.Column="0" Margin="3" Background="#1F1A24" BorderBrush="#1F1A24" Foreground="LightGray" Text="Description (Same as Start and Accept Message)"/>
+                            <TextBox Grid.Row="1" Grid.Column="0" Margin="3" Background="#1F1A24" BorderBrush="#1F1A24" Foreground="LightGray" Text="Fail Message"/>
+                            <TextBox Grid.Row="0" Grid.Column="1" Margin="3" Background="#1F1A24" BorderBrush="#1F1A24" Foreground="LightGray" Text="Success Message (Same as Complete Message"/>
+                            <TextBox Grid.Row="1" Grid.Column="1" Margin="3" Background="#1F1A24" BorderBrush="#1F1A24" Foreground="LightGray" Text="Change Message"/>
+                            <TextBox Grid.Row="2" Grid.Column="0" Margin="3" Background="#1F1A24" BorderBrush="#1F1A24" Foreground="LightGray" Text="Note"/>
                         </Grid>
                     </TabItem>
-                    <TabItem Height="20" Width="140" Background="DarkGray" BorderBrush="Gray" Header="Available For Start"/>    <!-- TODO: This will house all Quest Start Data -->
-                    <TabItem Height="20" Width="140" Background="DarkGray" BorderBrush="Gray" Header="Available For Finish"/>   <!-- TODO: This will house all Quest Finish Data -->
-                    <TabItem Height="20" Width="140" Background="DarkGray" BorderBrush="Gray" Header="Fail"/>                   <!-- TODO: This will house all quest Fail Data  -->
-                    <TabItem Height="20" Width="140" Background="DarkGray" BorderBrush="Gray" Header="Rewards"/>                <!-- TODO: This will house all Rewards Data -->
-                    <TabItem Height="20" Width="140" Background="DarkGray" BorderBrush="Gray" Header="Gunsmith"/>               <!-- TODO: This will house all Gunsmith Data (Unique)  -->
-                    <TabItem Height="20" Width="140" Background="DarkGray" BorderBrush="Gray" Header="Saves"/>                  <!-- TODO: This will house all Pre-made Gunsmith Presets (Unique)  -->
+                    <TabItem Height="Auto" Width="122" Background="#FFA9D1F4" BorderBrush="#121212" Header="Available For Start">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Row="0" Grid.Column="0" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <Label Width="Auto" Height="Auto" Content="Quest Requirement" Foreground="#FFFFFF"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Grid.Column="0" Margin="5" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <TextBox Margin="5" Width="140" Height="Auto" BorderBrush="#1F1A24" Foreground="#FFFFFF" Background="#1F1A24">Quest Id</TextBox>
+                                <CheckBox Margin="5" Width="140" Height="Auto" Foreground="#FFFFFF">Dynamic Locale</CheckBox>
+                                <Button Margin="5" Width="140" Height="Auto" BorderBrush="#332940" Background="#332940">Add</Button>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Grid.Column="0" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <ComboBox Margin="5" Width="140" Height="Auto" BorderBrush="#332940" Background="#332940">Status</ComboBox>
+                                <Button Margin="155. 5" Width="140" Height="Auto" BorderBrush="#332940" Background="#332940">Remove</Button>
+                            </StackPanel>
+                            <StackPanel Grid.Row="3" Grid.Column="0" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <TextBox Width="450" Height="171" Background="#1F1A24" BorderBrush="#1F1A24" Foreground="#FFFFFF">Locale Data</TextBox>
+                            </StackPanel>
+                            <StackPanel Grid.Row="0" Grid.Column="1" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <Label Margin="5" Width="Auto" Height="Auto" Content="Trader Loyalty Requirements" Foreground="#FFFFFF"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Grid.Column="1" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <ComboBox Margin="5" Width="140" Height="Auto" Background="#332940" BorderBrush="#332940">Trader</ComboBox>
+                                <CheckBox Margin="5" Width="140" Height="Auto" Foreground="#FFFFFF">Dynamic Locale</CheckBox>
+                                <Button Margin="5" Background="#332940" Width="140" Height="Auto" BorderBrush="#332940">Add</Button>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Grid.Column="1" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <ComboBox Margin="5" Width="140" Height="Auto" Background="#332940" BorderBrush="#332940">Compare</ComboBox>
+                                <TextBox Margin="5" Width="140" Height="Auto" Foreground="#FFFFFF" Background="#1F1A24" BorderBrush="#1F1A24">0</TextBox>
+                                <Button Margin="5" Background="#332940" Width="140" Height="Auto" BorderBrush="#332940">Remove</Button>
+                            </StackPanel>
+                            <StackPanel Grid.Row="3" Grid.Column="1" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <TextBox Width="450" Height="171" Background="#1F1A24" BorderBrush="#1F1A24" Foreground="#FFFFFF">Locale Data</TextBox>
+                            </StackPanel>
+                            <StackPanel Grid.Row="4" Grid.Column="0" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <Label Width="Auto" Height="Auto" Content="Level Requirement" Foreground="#FFFFFF"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="5" Grid.Column="0" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <TextBox Margin="5" Width="140" Height="Auto" Foreground="#FFFFFF" Background="#1F1A24" BorderBrush="#1F1A24">0</TextBox>
+                                <CheckBox Margin="5" Width="140" Height="Auto" Foreground="#FFFFFF">Dynamic Locale</CheckBox>
+                                <ComboBox Margin="5" Width="140" Height="Auto" Background="#332940" BorderBrush="#332940">Compare</ComboBox>
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Height="Auto" Width="122" Background="#FFA9D1F4" BorderBrush="#121212" Header="Available For Finish">
+                        <TabControl Background="#332940">
+                            <TabItem Header="Loyalty and Skill" Background="DarkGray" BorderBrush="#121212">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top">Loyalty</Label>
+                                
+                                
+                                    <Label Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top">Skill</Label>
+                                </Grid>
+                            </TabItem>
+                            <TabItem Header="Items" Background="DarkGray" BorderBrush="#121212"/>
+                            <TabItem Header="Visit and Kills" Background="DarkGray" BorderBrush="#121212"/>
+                        </TabControl>
+                    </TabItem>
+                    <TabItem Height="Auto" Width="60" Background="#FFA9D1F4" BorderBrush="#121212" Header="Fail"> 
+                        <TabControl Background="#332940">
+                            <TabItem Header="Quest and Standing" Background="DarkGray" BorderBrush="#121212"/>
+                            <TabItem Header="Exit Status" Background="DarkGray" BorderBrush="#121212"/>
+                            <TabItem Header="Kills" Background="DarkGray" BorderBrush="#121212"/>
+                        </TabControl>
+                    </TabItem>
+                    <TabItem Height="Auto" Width="60" Background="#FFA9D1F4" BorderBrush="#121212" Header="Rewards"> 
+                        <TabControl Background="#332940">
+                            <TabItem Header="Started" Background="DarkGray" BorderBrush="#121212"/>
+                            <TabItem Header="Success 1" Background="DarkGray" BorderBrush="#121212"/>
+                            <TabItem Header="Success 2" Background="DarkGray" BorderBrush="#121212"/>
+                        </TabControl>
+                    </TabItem>
+                    <TabItem Height="Auto" Width="130" Background="#FFA9D1F4" BorderBrush="#121212" Header="Gunsmith (Disabled)">
+                        <TextBlock Height="20" Width="200" Text="Not Available in 0.0.1-Alpha"></TextBlock>
+                    </TabItem>
+                    <TabItem Height="Auto" Width="122" Background="#FFA9D1F4" BorderBrush="#121212" Header="Saves (Disabled)">
+                        <TextBlock Height="20" Width="200" Text="Not Available in 0.0.1-Alpha"></TextBlock>
+                    </TabItem>
                 </TabControl>
-                </StackPanel>
             </StackPanel>
+        </StackPanel>
         <!-- Bottom Grid -->
-        <Menu Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Width="Auto" Height="28" Background="#FFA9D1F4" DockPanel.Dock="Bottom">
-            <Label Height="Auto" Width="Auto">https://github.com/RuKira/SPT-AllInOne</Label>
-            <Label Height="Auto" Width="Auto" Margin="350, 0">ALPHA VERSION 0.0.1: REPORT ALL BUGS</Label>
-            <Label Height="Auto" Width="Auto">SPECIAL THANKS TO DIRTBIKERCJ</Label>
+        <Menu Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Height="20" Background="#3700B3" DockPanel.Dock="Bottom">
+            <MenuItem Height="20" Width="Auto" Header="https://github.com/RuKira/SPT-AllInOne"/>
+            <MenuItem Height="20" Width="Auto" Margin="305, 0" Header="ALPHA VERSION 0.0.1: REPORT ALL BUGS"/>
+            <MenuItem Height="20" Width="Auto" Header="SPECIAL THANKS TO DIRTBIKERCJ"/>
         </Menu>
     </Grid>
 </Window>
