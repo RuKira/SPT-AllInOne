@@ -184,10 +184,10 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
-                                    <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top">Loyalty</Label>
+                                    <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF">Loyalty</Label>
                                 
                                 
-                                    <Label Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top">Skill</Label>
+                                    <Label Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF">Skill</Label>
                                 </Grid>
                             </TabItem>
                             <TabItem Header="Items" Background="DarkGray" BorderBrush="#121212"/>

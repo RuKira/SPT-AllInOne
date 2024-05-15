@@ -1,3 +1,4 @@
+using System.CodeDom.Compiler;
 using System.Text;
 using System.Text.Json;
 using System.Windows;
@@ -21,8 +22,9 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         // Utils.test();
-        List<Quest> quests = Utils.readQuestsFile("quests.json");
-        // Console.WriteLine(JsonSerializer.Serialize(quests[0]));
-        Close();
+        var quests = Utils.readQuestsFile("quests.json");
+        // Console.WriteLine(JsonSerializer.Serialize(quests, options: new JsonSerializerOptions { WriteIndented = true }));
+        Console.WriteLine(JsonSerializer.Serialize(quests[0], options: new JsonSerializerOptions { WriteIndented = true }));
+        // Close();
     }
 }

@@ -96,7 +96,7 @@ public class FinishEnums
         MAP_NAMES[Maps.Customs] = "bigmap";
         MAP_NAMES[Maps.FactoryDay] = "factory4_day";
         MAP_NAMES[Maps.FactoryNight] = "factory4_night";
-        MAP_NAMES[Maps.GroundZero] = "groundzero";
+        MAP_NAMES[Maps.GroundZero] = "Sandbox";
         MAP_NAMES[Maps.Interchange] = "Interchange";
         MAP_NAMES[Maps.Labs] = "Laboratory";
         MAP_NAMES[Maps.Lighthouse] = "Lighthouse";

@@ -11,7 +11,7 @@ public class Quest
     public string changeQuestMessageText { get; set; }
     public string completePlayerMessage { get; set; }
     
-    public List<AFF> Affs { get; set; }
+    public List<AFF> AvailableForFinish { get; set; }
     //available for start
     //fail
 
@@ -53,7 +53,7 @@ public class Quest
 
     public Quest(dynamic input)
     {
-        Affs = new List<AFF>();
+        AvailableForFinish = new List<AFF>();
         questName = input["QuestName"];
         _id = input["_id"];
         acceptPlayerMessage = $"{_id} acceptPlayerMessage";
@@ -66,15 +66,15 @@ public class Quest
             // Console.WriteLine($"{questName}: conditionType: {aff["conditionType"]}");
             switch (aff["conditionType"])
             {
-                case "CounterCreator": Affs.Add(new AFF_Counter(aff)); break;
-                case "FindItem": Affs.Add(new AFF_FindItem(aff)); break;
-                case "PlaceBeacon": Affs.Add(new AFF_Beacon(aff)); break;
-                case "LeaveItemAtLocation": Affs.Add(new AFF_DropItem(aff)); break;
-                case "HandoverItem": Affs.Add(new AFF_HandoverItem(aff)); break;
-                case "WeaponAssembly": Affs.Add(new AFF_WeaponAssembly(aff)); break;
-                case "Quest": Affs.Add(new AFF_Quest(aff)); break;
-                case "Skill": Affs.Add(new AFF_Skill(aff)); break;
-                case "TraderLoyalty": Affs.Add(new AFF_Loyalty(aff)); break;
+                case "CounterCreator": AvailableForFinish.Add(new AFF_Counter(aff)); break;
+                case "FindItem": AvailableForFinish.Add(new AFF_FindItem(aff)); break;
+                case "PlaceBeacon": AvailableForFinish.Add(new AFF_Beacon(aff)); break;
+                case "LeaveItemAtLocation": AvailableForFinish.Add(new AFF_DropItem(aff)); break;
+                case "HandoverItem": AvailableForFinish.Add(new AFF_HandoverItem(aff)); break;
+                case "WeaponAssembly": AvailableForFinish.Add(new AFF_WeaponAssembly(aff)); break;
+                case "Quest": AvailableForFinish.Add(new AFF_Quest(aff)); break;
+                case "Skill": AvailableForFinish.Add(new AFF_Skill(aff)); break;
+                case "TraderLoyalty": AvailableForFinish.Add(new AFF_Loyalty(aff)); break;
                 default: throw new Exception($"Unknown condition type!! {questName}");
             }
         }
