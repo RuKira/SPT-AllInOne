@@ -44,8 +44,8 @@
                 <Button Margin="3" Width="112" Background="#332940">Save Quest File</Button>
             </StackPanel>
             <StackPanel x:Name="TextBlockPanel" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <TextBlock Margin="3" Height="20" Background="#1F1A24" Width="352" Foreground="#FFFFFF">Loaded File Path</TextBlock>
-                <TextBlock Background="#1F1A24" Height="20" Width="352" Margin="3" Foreground="#FFFFFF">Loaded Locale Path</TextBlock>
+                <TextBlock x:Name="QuestFilePath" Margin="3" Height="20" Background="#1F1A24" Width="352" Foreground="#FFFFFF">~/../../../../Data/quests.json</TextBlock>
+                <TextBlock x:Name="LocaleFilePath" Background="#1F1A24" Height="20" Width="352" Margin="3" Foreground="#FFFFFF">~/../../../../Data/locale.json</TextBlock>
             </StackPanel>
             <StackPanel x:Name="QuestPanel" HorizontalAlignment="Left" VerticalAlignment="Top">
                 <StackPanel Orientation="Horizontal">
@@ -59,8 +59,8 @@
                     <Button Margin="3" Width="112" Background="#332940">Remove Quest</Button>
                 </StackPanel>
                 <StackPanel>
-                    <TextBlock Margin="3" Height="20" Width="347" Foreground="#FFFFFF" Background="#1F1A24">Current Quest</TextBlock>
-                    <ListBox Margin="3" Width="347" Height="400" Background="#1F1A24" Foreground="#FFFFFF">Quest List</ListBox>
+                    <TextBlock x:Name="CurrentQuest" Margin="3" Height="20" Width="347" Foreground="#FFFFFF" Background="#1F1A24">Current Quest</TextBlock>
+                    <ListBox x:Name="QuestListBox" Margin="3" Width="347" Height="400" Background="#1F1A24" Foreground="#FFFFFF"/>
                     <Button Margin="3" Width="347" Background="#332940" Foreground="#FFFFFF">Clear Console</Button>
                     <TextBlock Height="320" Width="348" Background="#1F1A24" Margin="3" Foreground="#FFFFFF">Quest Error Console</TextBlock>
                 </StackPanel>
@@ -68,25 +68,25 @@
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="3, 4">
             <StackPanel Orientation="Horizontal">
-                <TextBox Width="272" Background="#1F1A24" BorderBrush="#1F1A24" Margin="5, 0" Foreground="#FFFFFF">_id</TextBox>
-                <CheckBox Margin="5, 0" Width="150" IsChecked="True" Foreground="#FFFFFF">Can Show Notification</CheckBox>
-                <CheckBox Margin="5, 0" Width="140" Foreground="#FFFFFF">Requires Key</CheckBox>
-                <ComboBox Width="151" Background="#332940" BorderBrush="#1F1A24" Margin="5, 0">Trader</ComboBox>
-                <TextBox Width="272" Background="#1F1A24" BorderBrush="#1F1A24" Margin="5, 0" Foreground="#FFFFFF">Trader Id Override</TextBox>
+                <TextBox x:Name="IdName" Width="272" Background="#1F1A24" BorderBrush="#1F1A24" Margin="5, 0" Foreground="#FFFFFF">_id</TextBox>
+                <CheckBox x:Name="NotificationCheckBox" Margin="5, 0" Width="150" IsChecked="True" Foreground="#FFFFFF">Can Show Notification</CheckBox>
+                <CheckBox x:Name="KeyCheckBox" Margin="5, 0" Width="140" Foreground="#FFFFFF">Requires Key</CheckBox>
+                <ComboBox x:Name="TraderComboBox" Width="151" Background="#332940" BorderBrush="#1F1A24" Margin="5, 0">Trader</ComboBox>
+                <TextBox x:Name="TraderId" Width="272" Background="#1F1A24" BorderBrush="#1F1A24" Margin="5, 0" Foreground="#FFFFFF">Trader Id Override</TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0, 4">
-                <TextBox Width="272" Background="#1F1A24" BorderBrush="#1F1A24" Margin="5, 0" Foreground="#FFFFFF">Quest Name</TextBox>
-                <CheckBox Margin="5, 0" Width="150" Foreground="#FFFFFF">Dynamic Locale</CheckBox>
-                <CheckBox Margin="5, 0" Width="140" Foreground="#FFFFFF">Secret Quest</CheckBox>
-                <ComboBox Width="151" Background="#332940" BorderBrush="#1F1A24" Margin="5, 0">Location</ComboBox>
-                <TextBox Width="272" Background="#1F1A24" BorderBrush="#1F1A24" Margin="5, 0" Foreground="#FFFFFF">Location Id Override</TextBox>
+                <TextBox x:Name="QuestName" Width="272" Background="#1F1A24" BorderBrush="#1F1A24" Margin="5, 0" Foreground="#FFFFFF">Quest Name</TextBox>
+                <CheckBox x:Name="DynamicCheckBox" Margin="5, 0" Width="150" Foreground="#FFFFFF">Dynamic Locale (Disabled)</CheckBox>
+                <CheckBox x:Name="SecretCheckBox" Margin="5, 0" Width="140" Foreground="#FFFFFF">Secret Quest</CheckBox>
+                <ComboBox x:Name="LocationComboBox" Width="151" Background="#332940" BorderBrush="#1F1A24" Margin="5, 0">Location</ComboBox>
+                <TextBox x:Name="LocationId" Width="272" Background="#1F1A24" BorderBrush="#1F1A24" Margin="5, 0" Foreground="#FFFFFF">Location Id Override</TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBox Width="272" Background="#1F1A24" BorderBrush="#1F1A24" Margin="5, 0" Foreground="Red">Placeholder.png</TextBox>
-                <CheckBox Margin="5, 0" Width="150" Foreground="#FFFFFF">Restartable</CheckBox>
-                <CheckBox Margin="5, 0" Width="140" Foreground="#FFFFFF">Instant Complete</CheckBox>
-                <ComboBox Width="151" Background="#332940" BorderBrush="#1F1A24" Margin="5, 0">Side</ComboBox>
-                <ComboBox Width="272" Background="#332940" BorderBrush="#1F1A24" Margin="5, 0">Type</ComboBox>
+                <CheckBox x:Name="RestartableCheckBox" Margin="5, 0" Width="150" Foreground="#FFFFFF">Restartable</CheckBox>
+                <CheckBox x:Name="InstantCheckBox" Margin="5, 0" Width="140" Foreground="#FFFFFF">Instant Complete</CheckBox>
+                <ComboBox x:Name="SideComboBox" Width="151" Background="#332940" BorderBrush="#1F1A24" Margin="5, 0">Side</ComboBox>
+                <ComboBox x:Name="TypeComboBox" Width="272" Background="#332940" BorderBrush="#1F1A24" Margin="5, 0">Type</ComboBox>
             </StackPanel>
             <StackPanel Height="830" Margin="4">
                 <TabControl Height="830" Background="#332940">
@@ -101,11 +101,11 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <TextBox Grid.Row="0" Grid.Column="0" Margin="3" Background="#1F1A24" BorderBrush="#1F1A24" Foreground="LightGray" Text="Description (Same as Start and Accept Message)"/>
-                            <TextBox Grid.Row="1" Grid.Column="0" Margin="3" Background="#1F1A24" BorderBrush="#1F1A24" Foreground="LightGray" Text="Fail Message"/>
-                            <TextBox Grid.Row="0" Grid.Column="1" Margin="3" Background="#1F1A24" BorderBrush="#1F1A24" Foreground="LightGray" Text="Success Message (Same as Complete Message"/>
-                            <TextBox Grid.Row="1" Grid.Column="1" Margin="3" Background="#1F1A24" BorderBrush="#1F1A24" Foreground="LightGray" Text="Change Message"/>
-                            <TextBox Grid.Row="2" Grid.Column="0" Margin="3" Background="#1F1A24" BorderBrush="#1F1A24" Foreground="LightGray" Text="Note"/>
+                            <TextBox x:Name="Description" Grid.Row="0" Grid.Column="0" Margin="3" Background="#1F1A24" BorderBrush="#1F1A24" Foreground="LightGray" Text="Description (Same as Start and Accept Message)" TextWrapping="Wrap"/>
+                            <TextBox x:Name="Fail" Grid.Row="1" Grid.Column="0" Margin="3" Background="#1F1A24" BorderBrush="#1F1A24" Foreground="LightGray" Text="Fail Message" TextWrapping="Wrap"/>
+                            <TextBox x:Name="Success" Grid.Row="0" Grid.Column="1" Margin="3" Background="#1F1A24" BorderBrush="#1F1A24" Foreground="LightGray" Text="Success Message (Same as Complete Message" TextWrapping="Wrap"/>
+                            <TextBox x:Name="Change" Grid.Row="1" Grid.Column="1" Margin="3" Background="#1F1A24" BorderBrush="#1F1A24" Foreground="LightGray" Text="Change Message (Disabled)" TextWrapping="Wrap"/>
+                            <TextBox x:Name="Note" Grid.Row="2" Grid.Column="0" Margin="3" Background="#1F1A24" BorderBrush="#1F1A24" Foreground="LightGray" Text="Note (Disabled)" TextWrapping="Wrap"/>
                         </Grid>
                     </TabItem>
                     <TabItem Height="Auto" Width="122" Background="#FFA9D1F4" BorderBrush="#121212" Header="Available For Start">

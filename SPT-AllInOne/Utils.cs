@@ -27,4 +27,13 @@ public class Utils
             quests.Add(new Quest(objects[k]));
         return quests;
     }
+    
+    public static dynamic readLocaleFile(string filePath)
+    {
+        string jsonString = File.ReadAllText(filePath);
+        var jsp = new JsonParser();
+        dynamic objects = jsp.Parse(jsonString);
+        
+        return objects;
+    }
 }
