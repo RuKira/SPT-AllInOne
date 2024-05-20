@@ -48,7 +48,7 @@ public partial class MainWindow : Window
             SideComboBox.Items.Add(side);
         }
 
-        foreach (var location in enums.MAP_NAMES.Keys)
+        foreach (var location in enums.MAP_IDS.Keys)
         {
             LocationComboBox.Items.Add(location);
         }
@@ -69,7 +69,8 @@ public partial class MainWindow : Window
             var selectedQuest = quests[QuestListBox.SelectedIndex];
             IdName.Text = selectedQuest._id;
             QuestName.Text = locale[selectedQuest.name];
-            //TraderId.Text = selectedQuest.traderId; // TODO: This should be used to set a custom trader name
+            CurrentQuest.Text = locale[selectedQuest.name];
+            TraderId.Text = selectedQuest.traderId; // TODO: This should be used to set a custom trader name
             TraderComboBox.Text = selectedQuest.traderId; // TODO: We somehow need to cast to the ComboBox
             LocationComboBox.Text = selectedQuest.location; // TODO: We somehow need to cast to the ComboBox
             LocationId.Text = selectedQuest.location; // TODO: This should be used to set a custom location name (Typically never used)
@@ -83,8 +84,8 @@ public partial class MainWindow : Window
             Description.Text = locale[selectedQuest.description];
             Fail.Text = locale[selectedQuest.failMessageText];
             Success.Text = locale[selectedQuest.successMessageText];
-            //try{Change.Text = locale[selectedQuest.changeQuestMessageText];} catch {Change.Text = "";} // Are these even used?
-            //try{Note.Text = locale[selectedQuest.note];} catch {Note.Text = "";} // Are these even used?
+            try{Change.Text = locale[selectedQuest.changeQuestMessageText];} catch {Change.Text = "Change Message (Disabled)";} // Are these even used?
+            try{Note.Text = locale[selectedQuest.note];} catch {Note.Text = "Note (Disabled)";} // Are these even used?
         };
     }
 }

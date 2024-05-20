@@ -2,6 +2,7 @@
 using System.Transactions;
 
 namespace SPT_AllInOne;
+
 public enum Traders
 {
     Fence,
@@ -59,10 +60,11 @@ public enum QuestStatus
 
 public class FinishEnums
 {
-    public Dictionary<Maps,string> MAP_NAMES { get;  set; }
+    //public Dictionary<Maps,string> MAP_NAMES { get;  set; }
+    public Dictionary<string,string> MAP_IDS { get;  set; }
     public Dictionary<RootConditionTypes, string> ROOT_CONDITIONS { get; set; }
     public Dictionary<Sides, string> SIDE { get;  set; }
-    public Dictionary<Traders, string> TRADER_NAMES { get;  set; }
+    //public Dictionary<Traders, string> TRADER_NAMES { get;  set; }
     public Dictionary<string, string> TRADER_IDS { get;  set; }
 
     public FinishEnums()
@@ -94,19 +96,33 @@ public class FinishEnums
     }
     public void mapsSetup()
     {
-        MAP_NAMES = new Dictionary<Maps, string>();
-        MAP_NAMES[Maps.any] = "any";
-        MAP_NAMES[Maps.Customs] = "bigmap";
-        MAP_NAMES[Maps.FactoryDay] = "factory4_day";
-        MAP_NAMES[Maps.FactoryNight] = "factory4_night";
-        MAP_NAMES[Maps.GroundZero] = "Sandbox";
-        MAP_NAMES[Maps.Interchange] = "Interchange";
-        MAP_NAMES[Maps.Labs] = "Laboratory";
-        MAP_NAMES[Maps.Lighthouse] = "Lighthouse";
-        MAP_NAMES[Maps.Reserve] = "RezervBase";
-        MAP_NAMES[Maps.Shoreline] = "Shoreline";
-        MAP_NAMES[Maps.Streets] = "TarkovStreets";
-        MAP_NAMES[Maps.Woods] = "Woods";
+        //MAP_NAMES = new Dictionary<Maps, string>();
+        //MAP_NAMES[Maps.any] = "any";
+        //MAP_NAMES[Maps.Customs] = "bigmap";
+        //MAP_NAMES[Maps.FactoryDay] = "factory4_day";
+        //MAP_NAMES[Maps.FactoryNight] = "factory4_night";
+        //MAP_NAMES[Maps.GroundZero] = "Sandbox";
+        //MAP_NAMES[Maps.Interchange] = "Interchange";
+        //MAP_NAMES[Maps.Labs] = "Laboratory";
+        //MAP_NAMES[Maps.Lighthouse] = "Lighthouse";
+        //MAP_NAMES[Maps.Reserve] = "RezervBase";
+        //MAP_NAMES[Maps.Shoreline] = "Shoreline";
+        //MAP_NAMES[Maps.Streets] = "TarkovStreets";
+        //MAP_NAMES[Maps.Woods] = "Woods";
+        
+        MAP_IDS = new Dictionary<string, string>();
+        MAP_IDS["any"] = "any";
+        MAP_IDS["Customs"] = "56f40101d2720b2a4d8b45d6";
+        MAP_IDS["FactoryDay"] = "55f2d3fd4bdc2d5f408b4567";
+        MAP_IDS["FactoryNight"] = "59fc81d786f774390775787e";
+        MAP_IDS["GroundZero"] = "653e6760052c01c1c805532f";
+        MAP_IDS["Interchange"] = "5714dbc024597771384a510d";
+        MAP_IDS["Labs"] = "5b0fc42d86f7744a585f9105";
+        MAP_IDS["Lighthouse"] = "5704e4dad2720bb55b8b4567";
+        MAP_IDS["Reserve"] = "5704e5fad2720bc05b8b4567";
+        MAP_IDS["Shoreline"] = "5704e554d2720bac5b8b456e";
+        MAP_IDS["Streets"] = "5714dc692459777137212e12";
+        MAP_IDS["Woods"] = "5704e3c2d2720bac5b8b4567";
     }
     public void tradersSetup()
     {
