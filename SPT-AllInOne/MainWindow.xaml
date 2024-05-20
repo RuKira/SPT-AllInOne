@@ -71,22 +71,22 @@
                 <TextBox x:Name="IdName" Width="272" Background="#1F1A24" BorderBrush="#1F1A24" Margin="5, 0" Foreground="#FFFFFF">_id</TextBox>
                 <CheckBox x:Name="NotificationCheckBox" Margin="5, 0" Width="150" IsChecked="True" Foreground="#FFFFFF">Can Show Notification</CheckBox>
                 <CheckBox x:Name="KeyCheckBox" Margin="5, 0" Width="140" Foreground="#FFFFFF">Requires Key</CheckBox>
-                <ComboBox x:Name="TraderComboBox" Width="151" Background="#332940" BorderBrush="#1F1A24" Margin="5, 0">Trader</ComboBox>
-                <TextBox x:Name="TraderId" Width="272" Background="#1F1A24" BorderBrush="#1F1A24" Margin="5, 0" Foreground="#FFFFFF">Trader Id Override</TextBox>
+                <ComboBox x:Name="TraderComboBox" Width="151" Background="#332940" BorderBrush="#1F1A24" Margin="5, 0"/>
+                <TextBox x:Name="TraderId" Width="272" Background="#1F1A24" BorderBrush="#1F1A24" Margin="5, 0" Foreground="#FFFFFF">Trader Id Override (Disabled)</TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0, 4">
                 <TextBox x:Name="QuestName" Width="272" Background="#1F1A24" BorderBrush="#1F1A24" Margin="5, 0" Foreground="#FFFFFF">Quest Name</TextBox>
                 <CheckBox x:Name="DynamicCheckBox" Margin="5, 0" Width="150" Foreground="#FFFFFF">Dynamic Locale (Disabled)</CheckBox>
                 <CheckBox x:Name="SecretCheckBox" Margin="5, 0" Width="140" Foreground="#FFFFFF">Secret Quest</CheckBox>
-                <ComboBox x:Name="LocationComboBox" Width="151" Background="#332940" BorderBrush="#1F1A24" Margin="5, 0">Location</ComboBox>
-                <TextBox x:Name="LocationId" Width="272" Background="#1F1A24" BorderBrush="#1F1A24" Margin="5, 0" Foreground="#FFFFFF">Location Id Override</TextBox>
+                <ComboBox x:Name="LocationComboBox" Width="151" Background="#332940" BorderBrush="#1F1A24" Margin="5, 0"/>
+                <TextBox x:Name="LocationId" Width="272" Background="#1F1A24" BorderBrush="#1F1A24" Margin="5, 0" Foreground="#FFFFFF">Location Id Override (Disabled)</TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBox Width="272" Background="#1F1A24" BorderBrush="#1F1A24" Margin="5, 0" Foreground="Red">Placeholder.png</TextBox>
                 <CheckBox x:Name="RestartableCheckBox" Margin="5, 0" Width="150" Foreground="#FFFFFF">Restartable</CheckBox>
                 <CheckBox x:Name="InstantCheckBox" Margin="5, 0" Width="140" Foreground="#FFFFFF">Instant Complete</CheckBox>
-                <ComboBox x:Name="SideComboBox" Width="151" Background="#332940" BorderBrush="#1F1A24" Margin="5, 0">Side</ComboBox>
-                <ComboBox x:Name="TypeComboBox" Width="272" Background="#332940" BorderBrush="#1F1A24" Margin="5, 0">Type</ComboBox>
+                <ComboBox x:Name="SideComboBox" Width="151" Background="#332940" BorderBrush="#1F1A24" Margin="5, 0"/>
+                <ComboBox x:Name="TypeComboBox" Width="272" Background="#332940" BorderBrush="#1F1A24" Margin="5, 0"/>
             </StackPanel>
             <StackPanel Height="830" Margin="4">
                 <TabControl Height="830" Background="#332940">

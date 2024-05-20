@@ -26,25 +26,53 @@ public partial class MainWindow : Window
         // TODO: Build/Copy the quests.json file to the output directory
         var quests = Utils.readQuestsFile(QuestFilePath.Text);
         var locale = Utils.readLocaleFile(LocaleFilePath.Text);
-        // Console.WriteLine(JsonSerializer.Serialize(quests, options: new JsonSerializerOptions { WriteIndented = true }));
+        var enums = new FinishEnums();
         
         Console.WriteLine(JsonSerializer.Serialize(quests[0], options: new JsonSerializerOptions { WriteIndented = true }));
         
-        // TODO: Make a class for the below so it's not just sitting in MainWindow.xaml.cs
+        AppSetup(quests, locale, enums);
+        // Close();
+
+    }
+
+    private void AppSetup(List<Quest> quests, dynamic locale, FinishEnums enums)
+    {
+        #region ComboBoxesSetup
+        foreach (var traders in enums.TRADER_IDS.Keys)
+        {
+            TraderComboBox.Items.Add(traders);
+        }
+        
+        foreach (var side in enums.SIDE.Keys)
+        {
+            SideComboBox.Items.Add(side);
+        }
+
+        foreach (var location in enums.MAP_NAMES.Keys)
+        {
+            LocationComboBox.Items.Add(location);
+        }
+
+        foreach (var type in enums.ROOT_CONDITIONS.Keys)
+        {
+            TypeComboBox.Items.Add(type);
+        }
+        #endregion
+        
         foreach (var quest in quests)
         {
             QuestListBox.Items.Add(quest.questName);
         }
-        
+
         QuestListBox.SelectionChanged += (sender, args) =>
         {
             var selectedQuest = quests[QuestListBox.SelectedIndex];
             IdName.Text = selectedQuest._id;
             QuestName.Text = locale[selectedQuest.name];
-            TraderId.Text = selectedQuest.traderId; // TODO: This should be used to set a custom trader name | For now being used to list the ID of the official trader
+            //TraderId.Text = selectedQuest.traderId; // TODO: This should be used to set a custom trader name
             TraderComboBox.Text = selectedQuest.traderId; // TODO: We somehow need to cast to the ComboBox
             LocationComboBox.Text = selectedQuest.location; // TODO: We somehow need to cast to the ComboBox
-            LocationId.Text = selectedQuest.location; // TODO: This should be used to set a custom location name | For now being used to list the ID of the official location
+            LocationId.Text = selectedQuest.location; // TODO: This should be used to set a custom location name (Typically never used)
             SideComboBox.Text = selectedQuest.side; // TODO: We somehow need to cast to the ComboBox
             TypeComboBox.Text = selectedQuest.type; // TODO: We somehow need to cast to the ComboBox
             RestartableCheckBox.IsChecked = selectedQuest.restartable;
@@ -53,12 +81,10 @@ public partial class MainWindow : Window
             NotificationCheckBox.IsChecked = selectedQuest.canShowNotificationsInGame;
             KeyCheckBox.IsChecked = selectedQuest.isKey;
             Description.Text = locale[selectedQuest.description];
-            Fail.Text = locale[selectedQuest.failMessageText]; 
+            Fail.Text = locale[selectedQuest.failMessageText];
             Success.Text = locale[selectedQuest.successMessageText];
             //try{Change.Text = locale[selectedQuest.changeQuestMessageText];} catch {Change.Text = "";} // Are these even used?
             //try{Note.Text = locale[selectedQuest.note];} catch {Note.Text = "";} // Are these even used?
         };
-        
-        // Close();
     }
 }

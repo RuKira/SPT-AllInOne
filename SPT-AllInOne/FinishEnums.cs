@@ -59,11 +59,11 @@ public enum QuestStatus
 
 public class FinishEnums
 {
-    public static Dictionary<Maps,string> MAP_NAMES { get; }
-    public static Dictionary<RootConditionTypes, string> ROOT_CONDITIONS { get; }
-    public static Dictionary<Sides, string> SIDE { get; }
-    public static Dictionary<Traders, string> TRADER_NAMES { get; }
-    public static Dictionary<Traders, string> TRADER_IDS { get; }
+    public Dictionary<Maps,string> MAP_NAMES { get;  set; }
+    public Dictionary<RootConditionTypes, string> ROOT_CONDITIONS { get; set; }
+    public Dictionary<Sides, string> SIDE { get;  set; }
+    public Dictionary<Traders, string> TRADER_NAMES { get;  set; }
+    public Dictionary<string, string> TRADER_IDS { get;  set; }
 
     public FinishEnums()
     {
@@ -73,8 +73,9 @@ public class FinishEnums
         sidesSetup();
     }
 
-    private void questsSetup()
+    public void questsSetup()
     {
+        ROOT_CONDITIONS = new Dictionary<RootConditionTypes, string>();
         ROOT_CONDITIONS[RootConditionTypes.Counter] = "CounterCreator"; 
         ROOT_CONDITIONS[RootConditionTypes.FindItem] = "FindItem"; 
         ROOT_CONDITIONS[RootConditionTypes.HandoverItem] = "HandoverItem"; 
@@ -83,15 +84,17 @@ public class FinishEnums
         ROOT_CONDITIONS[RootConditionTypes.PlaceBeacon] = "PlaceBeacon"; 
     }
 
-    private void sidesSetup()
+    public void sidesSetup()
     {
+        SIDE = new Dictionary<Sides, string>();
         SIDE[Sides.PMC] = "pmc";
         SIDE[Sides.BEAR] = "bear";
         SIDE[Sides.USEC] = "usec";
         SIDE[Sides.SCAV] = "savages";
     }
-    private void mapsSetup()
+    public void mapsSetup()
     {
+        MAP_NAMES = new Dictionary<Maps, string>();
         MAP_NAMES[Maps.any] = "any";
         MAP_NAMES[Maps.Customs] = "bigmap";
         MAP_NAMES[Maps.FactoryDay] = "factory4_day";
@@ -105,25 +108,27 @@ public class FinishEnums
         MAP_NAMES[Maps.Streets] = "TarkovStreets";
         MAP_NAMES[Maps.Woods] = "Woods";
     }
-    private void tradersSetup()
+    public void tradersSetup()
     {
-        TRADER_NAMES[Traders.Fence] = "Fence";
-        TRADER_NAMES[Traders.Prapor] = "Prapor";
-        TRADER_NAMES[Traders.Therapist] = "Therapist";
-        TRADER_NAMES[Traders.Skier] = "Skier";
-        TRADER_NAMES[Traders.Peacekeeper] = "Peacekeeper";
-        TRADER_NAMES[Traders.Mechanic] = "Mechanic";
-        TRADER_NAMES[Traders.Ragman] = "Ragman";
-        TRADER_NAMES[Traders.Jager] = "Jager";
+        //TRADER_NAMES = new Dictionary<Traders, string>();
+        //TRADER_NAMES[Traders.Fence] = "Fence";
+        //TRADER_NAMES[Traders.Prapor] = "Prapor";
+        //TRADER_NAMES[Traders.Therapist] = "Therapist";
+        //TRADER_NAMES[Traders.Skier] = "Skier";
+        //TRADER_NAMES[Traders.Peacekeeper] = "Peacekeeper";
+        //TRADER_NAMES[Traders.Mechanic] = "Mechanic";
+        //TRADER_NAMES[Traders.Ragman] = "Ragman";
+        //TRADER_NAMES[Traders.Jager] = "Jager";
         
-        TRADER_IDS[Traders.Fence] = "579dc571d53a0658a154fbec";
-        TRADER_IDS[Traders.Prapor] = "54cb50c76803fa8b248b4571";
-        TRADER_IDS[Traders.Therapist] = "54cb57776803fa99248b456e";
-        TRADER_IDS[Traders.Skier] = "58330581ace78e27b8b10cee";
-        TRADER_IDS[Traders.Peacekeeper] = "5935c25fb3acc3127c3d8cd9";
-        TRADER_IDS[Traders.Mechanic] = "5a7c2eca46aef81a7ca2145d";
-        TRADER_IDS[Traders.Ragman] = "5ac3b934156ae10c4430e83c";
-        TRADER_IDS[Traders.Jager] = "5c0647fdd443bc2504c2d371";
+        TRADER_IDS = new Dictionary<string, string>();
+        TRADER_IDS["Fence"] = "579dc571d53a0658a154fbec";
+        TRADER_IDS["Prapor"] = "54cb50c76803fa8b248b4571";
+        TRADER_IDS["Therapist"] = "54cb57776803fa99248b456e";
+        TRADER_IDS["Skier"] = "58330581ace78e27b8b10cee";
+        TRADER_IDS["Peacekeeper"] = "5935c25fb3acc3127c3d8cd9";
+        TRADER_IDS["Mechanic"] = "5a7c2eca46aef81a7ca2145d";
+        TRADER_IDS["Ragman"] = "5ac3b934156ae10c4430e83c";
+        TRADER_IDS["Jager"] = "5c0647fdd443bc2504c2d371";
     }
 }
 
