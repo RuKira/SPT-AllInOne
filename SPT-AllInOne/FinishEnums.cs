@@ -3,6 +3,7 @@ using System.Transactions;
 using System.Windows.Documents;
 
 namespace SPT_AllInOne;
+
 public enum Traders
 {
     Fence,
@@ -60,11 +61,12 @@ public enum QuestStatus
 
 public class FinishEnums
 {
-    public static Dictionary<Maps,string> MAP_NAMES { get; }
-    public static Dictionary<RootConditionTypes, string> ROOT_CONDITIONS { get; }
-    public static Dictionary<Sides, string> SIDE { get; }
-    public static Dictionary<Traders, string> TRADER_NAMES { get; }
-    public static Dictionary<Traders, string> TRADER_IDS { get; }
+    //public Dictionary<Maps,string> MAP_NAMES { get;  set; }
+    public Dictionary<string,string> MAP_IDS { get;  set; }
+    public Dictionary<RootConditionTypes, string> ROOT_CONDITIONS { get; set; }
+    public Dictionary<Sides, string> SIDE { get;  set; }
+    //public Dictionary<Traders, string> TRADER_NAMES { get;  set; }
+    public Dictionary<string, string> TRADER_IDS { get;  set; }
 
     public FinishEnums()
     {
@@ -74,8 +76,9 @@ public class FinishEnums
         sidesSetup();
     }
 
-    private void questsSetup()
+    public void questsSetup()
     {
+        ROOT_CONDITIONS = new Dictionary<RootConditionTypes, string>();
         ROOT_CONDITIONS[RootConditionTypes.Counter] = "CounterCreator"; 
         ROOT_CONDITIONS[RootConditionTypes.FindItem] = "FindItem"; 
         ROOT_CONDITIONS[RootConditionTypes.HandoverItem] = "HandoverItem"; 
@@ -84,47 +87,65 @@ public class FinishEnums
         ROOT_CONDITIONS[RootConditionTypes.PlaceBeacon] = "PlaceBeacon"; 
     }
 
-    private void sidesSetup()
+    public void sidesSetup()
     {
+        SIDE = new Dictionary<Sides, string>();
         SIDE[Sides.PMC] = "pmc";
         SIDE[Sides.BEAR] = "bear";
         SIDE[Sides.USEC] = "usec";
         SIDE[Sides.SCAV] = "savages";
     }
-    private void mapsSetup()
+    public void mapsSetup()
     {
-        MAP_NAMES[Maps.any] = "any";
-        MAP_NAMES[Maps.Customs] = "bigmap";
-        MAP_NAMES[Maps.FactoryDay] = "factory4_day";
-        MAP_NAMES[Maps.FactoryNight] = "factory4_night";
-        MAP_NAMES[Maps.GroundZero] = "Sandbox";
-        MAP_NAMES[Maps.Interchange] = "Interchange";
-        MAP_NAMES[Maps.Labs] = "Laboratory";
-        MAP_NAMES[Maps.Lighthouse] = "Lighthouse";
-        MAP_NAMES[Maps.Reserve] = "RezervBase";
-        MAP_NAMES[Maps.Shoreline] = "Shoreline";
-        MAP_NAMES[Maps.Streets] = "TarkovStreets";
-        MAP_NAMES[Maps.Woods] = "Woods";
-    }
-    private void tradersSetup()
-    {
-        TRADER_NAMES[Traders.Fence] = "Fence";
-        TRADER_NAMES[Traders.Prapor] = "Prapor";
-        TRADER_NAMES[Traders.Therapist] = "Therapist";
-        TRADER_NAMES[Traders.Skier] = "Skier";
-        TRADER_NAMES[Traders.Peacekeeper] = "Peacekeeper";
-        TRADER_NAMES[Traders.Mechanic] = "Mechanic";
-        TRADER_NAMES[Traders.Ragman] = "Ragman";
-        TRADER_NAMES[Traders.Jager] = "Jager";
+        //MAP_NAMES = new Dictionary<Maps, string>();
+        //MAP_NAMES[Maps.any] = "any";
+        //MAP_NAMES[Maps.Customs] = "bigmap";
+        //MAP_NAMES[Maps.FactoryDay] = "factory4_day";
+        //MAP_NAMES[Maps.FactoryNight] = "factory4_night";
+        //MAP_NAMES[Maps.GroundZero] = "Sandbox";
+        //MAP_NAMES[Maps.Interchange] = "Interchange";
+        //MAP_NAMES[Maps.Labs] = "Laboratory";
+        //MAP_NAMES[Maps.Lighthouse] = "Lighthouse";
+        //MAP_NAMES[Maps.Reserve] = "RezervBase";
+        //MAP_NAMES[Maps.Shoreline] = "Shoreline";
+        //MAP_NAMES[Maps.Streets] = "TarkovStreets";
+        //MAP_NAMES[Maps.Woods] = "Woods";
         
-        TRADER_IDS[Traders.Fence] = "579dc571d53a0658a154fbec";
-        TRADER_IDS[Traders.Prapor] = "54cb50c76803fa8b248b4571";
-        TRADER_IDS[Traders.Therapist] = "54cb57776803fa99248b456e";
-        TRADER_IDS[Traders.Skier] = "58330581ace78e27b8b10cee";
-        TRADER_IDS[Traders.Peacekeeper] = "5935c25fb3acc3127c3d8cd9";
-        TRADER_IDS[Traders.Mechanic] = "5a7c2eca46aef81a7ca2145d";
-        TRADER_IDS[Traders.Ragman] = "5ac3b934156ae10c4430e83c";
-        TRADER_IDS[Traders.Jager] = "5c0647fdd443bc2504c2d371";
+        MAP_IDS = new Dictionary<string, string>();
+        MAP_IDS["any"] = "any";
+        MAP_IDS["Customs"] = "56f40101d2720b2a4d8b45d6";
+        MAP_IDS["FactoryDay"] = "55f2d3fd4bdc2d5f408b4567";
+        MAP_IDS["FactoryNight"] = "59fc81d786f774390775787e";
+        MAP_IDS["GroundZero"] = "653e6760052c01c1c805532f";
+        MAP_IDS["Interchange"] = "5714dbc024597771384a510d";
+        MAP_IDS["Labs"] = "5b0fc42d86f7744a585f9105";
+        MAP_IDS["Lighthouse"] = "5704e4dad2720bb55b8b4567";
+        MAP_IDS["Reserve"] = "5704e5fad2720bc05b8b4567";
+        MAP_IDS["Shoreline"] = "5704e554d2720bac5b8b456e";
+        MAP_IDS["Streets"] = "5714dc692459777137212e12";
+        MAP_IDS["Woods"] = "5704e3c2d2720bac5b8b4567";
+    }
+    public void tradersSetup()
+    {
+        //TRADER_NAMES = new Dictionary<Traders, string>();
+        //TRADER_NAMES[Traders.Fence] = "Fence";
+        //TRADER_NAMES[Traders.Prapor] = "Prapor";
+        //TRADER_NAMES[Traders.Therapist] = "Therapist";
+        //TRADER_NAMES[Traders.Skier] = "Skier";
+        //TRADER_NAMES[Traders.Peacekeeper] = "Peacekeeper";
+        //TRADER_NAMES[Traders.Mechanic] = "Mechanic";
+        //TRADER_NAMES[Traders.Ragman] = "Ragman";
+        //TRADER_NAMES[Traders.Jager] = "Jager";
+        
+        TRADER_IDS = new Dictionary<string, string>();
+        TRADER_IDS["Fence"] = "579dc571d53a0658a154fbec";
+        TRADER_IDS["Prapor"] = "54cb50c76803fa8b248b4571";
+        TRADER_IDS["Therapist"] = "54cb57776803fa99248b456e";
+        TRADER_IDS["Skier"] = "58330581ace78e27b8b10cee";
+        TRADER_IDS["Peacekeeper"] = "5935c25fb3acc3127c3d8cd9";
+        TRADER_IDS["Mechanic"] = "5a7c2eca46aef81a7ca2145d";
+        TRADER_IDS["Ragman"] = "5ac3b934156ae10c4430e83c";
+        TRADER_IDS["Jager"] = "5c0647fdd443bc2504c2d371";
     }
 }
 
