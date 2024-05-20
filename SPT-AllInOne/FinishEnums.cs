@@ -78,13 +78,6 @@ public class FinishEnums
 
     public void questsSetup()
     {
-        ROOT_CONDITIONS = new Dictionary<RootConditionTypes, string>();
-        ROOT_CONDITIONS[RootConditionTypes.Counter] = "CounterCreator"; 
-        ROOT_CONDITIONS[RootConditionTypes.FindItem] = "FindItem"; 
-        ROOT_CONDITIONS[RootConditionTypes.HandoverItem] = "HandoverItem"; 
-        ROOT_CONDITIONS[RootConditionTypes.LeaveItem] = "LeaveItemAtLocation"; 
-        ROOT_CONDITIONS[RootConditionTypes.WeaponAssembly] = "WeaponAssembly"; 
-        ROOT_CONDITIONS[RootConditionTypes.PlaceBeacon] = "PlaceBeacon"; 
         ROOT_CONDITIONS = new Dictionary<RootConditionTypes, string>
         {
             [RootConditionTypes.Counter] = "CounterCreator",
@@ -98,11 +91,6 @@ public class FinishEnums
 
     public void sidesSetup()
     {
-        SIDE = new Dictionary<Sides, string>();
-        SIDE[Sides.PMC] = "pmc";
-        SIDE[Sides.BEAR] = "bear";
-        SIDE[Sides.USEC] = "usec";
-        SIDE[Sides.SCAV] = "savages";
         SIDE = new Dictionary<Sides, string>
         {
             [Sides.PMC] = "pmc",
@@ -127,19 +115,6 @@ public class FinishEnums
         //MAP_NAMES[Maps.Streets] = "TarkovStreets";
         //MAP_NAMES[Maps.Woods] = "Woods";
         
-        MAP_IDS = new Dictionary<string, string>();
-        MAP_IDS["any"] = "any";
-        MAP_IDS["Customs"] = "56f40101d2720b2a4d8b45d6";
-        MAP_IDS["FactoryDay"] = "55f2d3fd4bdc2d5f408b4567";
-        MAP_IDS["FactoryNight"] = "59fc81d786f774390775787e";
-        MAP_IDS["GroundZero"] = "653e6760052c01c1c805532f";
-        MAP_IDS["Interchange"] = "5714dbc024597771384a510d";
-        MAP_IDS["Labs"] = "5b0fc42d86f7744a585f9105";
-        MAP_IDS["Lighthouse"] = "5704e4dad2720bb55b8b4567";
-        MAP_IDS["Reserve"] = "5704e5fad2720bc05b8b4567";
-        MAP_IDS["Shoreline"] = "5704e554d2720bac5b8b456e";
-        MAP_IDS["Streets"] = "5714dc692459777137212e12";
-        MAP_IDS["Woods"] = "5704e3c2d2720bac5b8b4567";
         //MAP_IDS = new Dictionary<string, string>
         //{
         //    ["any"] = "any",
@@ -184,15 +159,6 @@ public class FinishEnums
         //TRADER_NAMES[Traders.Ragman] = "Ragman";
         //TRADER_NAMES[Traders.Jager] = "Jager";
         
-        TRADER_IDS = new Dictionary<string, string>();
-        TRADER_IDS["Fence"] = "579dc571d53a0658a154fbec";
-        TRADER_IDS["Prapor"] = "54cb50c76803fa8b248b4571";
-        TRADER_IDS["Therapist"] = "54cb57776803fa99248b456e";
-        TRADER_IDS["Skier"] = "58330581ace78e27b8b10cee";
-        TRADER_IDS["Peacekeeper"] = "5935c25fb3acc3127c3d8cd9";
-        TRADER_IDS["Mechanic"] = "5a7c2eca46aef81a7ca2145d";
-        TRADER_IDS["Ragman"] = "5ac3b934156ae10c4430e83c";
-        TRADER_IDS["Jager"] = "5c0647fdd443bc2504c2d371";
         //TRADER_IDS = new Dictionary<string, string>
         //{
         //    ["Fence"] = "579dc571d53a0658a154fbec",
@@ -267,7 +233,14 @@ public class AFF_FindItem : AFF
         target = input["target"];
         visibilityConditions = input["visibilityConditions"];
 
+        countInRaid = input["countInRaid"];                                                                         // TODO: Somewhere in this code is causing error's
+        dogtagLevel = (int)input["dogtagLevel"];                                                                    // TODO: Somewhere in this code is causing error's
+        isEncoded = input["isEncoded"];                                                                             // TODO: Somewhere in this code is causing error's
 
+        maxDurability = Int32.Parse(input["maxDurability"].ToString());                                             // TODO: Somewhere in this code is causing error's
+        minDurability = Int32.Parse(input["minDurability"].ToString());                                             // TODO: Somewhere in this code is causing error's
+        onlyFoundInRaid = input["onlyFoundInRaid"];                                                                 // TODO: Somewhere in this code is causing error's
+        value = input["value"].ToString();                                                                          // TODO: Somewhere in this code is causing error's
     }
 }
 
@@ -292,6 +265,14 @@ public class AFF_DropItem : AFF
         target = input["target"];
         visibilityConditions = input["visibilityConditions"];
 
+        zoneId = input["zoneId"];                                                                                   // TODO: Somewhere in this code is causing error's
+        plantTime = (int) input["plantTime"];                                                                       // TODO: Somewhere in this code is causing error's
+        dogtagLevel = (int) input["dogtagLevel"];                                                                   // TODO: Somewhere in this code is causing error's
+        isEncoded = input["isEncoded"];                                                                             // TODO: Somewhere in this code is causing error's
+        maxDurability = (int) input["maxDurability"];                                                               // TODO: Somewhere in this code is causing error's
+        minDurability = (int) input["minDurability"];                                                               // TODO: Somewhere in this code is causing error's
+        onlyFoundInRaid = input["onlyFoundInRaid"];                                                                 // TODO: Somewhere in this code is causing error's
+        value = input["value"].ToString();                                                                          // TODO: Somewhere in this code is causing error's
     }
 }
 
@@ -337,10 +318,74 @@ public class CounterConditions
     }
 }
 
+public class AFF_CounterConditions                                                                                  // TODO: Somewhere in this code is causing error's
+{                                                                                                                   // TODO: Somewhere in this code is causing error's
+    public string conditionType { get; set; }                                                                       // TODO: Somewhere in this code is causing error's
+    public string compareMethod { get; set; }                                                                       // TODO: Somewhere in this code is causing error's
+    public bool dynamicLocale { get; set; }                                                                         // TODO: Somewhere in this code is causing error's
+    public string id { get; set; }                                                                                  // TODO: Somewhere in this code is causing error's
+    public bool resetOnSessionEnd { get; set; }                                                                     // TODO: Somewhere in this code is causing error's
+    public string target { get; set; }                                                                              // TODO: Somewhere in this code is causing error's
+    public int value { get; set; }                                                                                  // TODO: Somewhere in this code is causing error's
+                                                                                                                    // TODO: Somewhere in this code is causing error's
+    public AFF_CounterConditions()                                                                                  // TODO: Somewhere in this code is causing error's
+    {                                                                                                               // TODO: Somewhere in this code is causing error's
+                                                                                                                    // TODO: Somewhere in this code is causing error's
+    }                                                                                                               // TODO: Somewhere in this code is causing error's
+                                                                                                                    // TODO: Somewhere in this code is causing error's
+    public AFF_CounterConditions(dynamic input)                                                                     // TODO: Somewhere in this code is causing error's
+    {                                                                                                               // TODO: Somewhere in this code is causing error's
+                                                                                                                    // TODO: Somewhere in this code is causing error's
+    }                                                                                                               // TODO: Somewhere in this code is causing error's
+                                                                                                                    // TODO: Somewhere in this code is causing error's
+}                                                                                                                   // TODO: Somewhere in this code is causing error's
+
+public class AFF_CounterConditions_Kills : AFF_CounterConditions                                                    // TODO: Somewhere in this code is causing error's
+{                                                                                                                   // TODO: Somewhere in this code is causing error's
+    public string[] bodyPart { get; set; }                                                                          // TODO: Somewhere in this code is causing error's
+    public Dictionary<string, int> daytime { get; set; }                                                            // TODO: Somewhere in this code is causing error's
+    public List<CounterConditions> conditions { get; set; }                                                         // TODO: Somewhere in this code is causing error's
+    public string[] enemyEquipmentExclusive { get; set; }                                                           // TODO: Somewhere in this code is causing error's
+    public string[] enemyEquipmentInclusive { get; set; }                                                           // TODO: Somewhere in this code is causing error's
+    public string[] enemyHealthEffects { get; set; }                                                                // TODO: Somewhere in this code is causing error's
+    public string[] savageRole { get; set; }                                                                        // TODO: Somewhere in this code is causing error's
+    public string[] weapon { get; set; }                                                                            // TODO: Somewhere in this code is causing error's
+    public string[] weaponCaliber { get; set; }                                                                     // TODO: Somewhere in this code is causing error's
+    public string[] weaponModsExclusive { get; set; }                                                               // TODO: Somewhere in this code is causing error's
+    public string[] weaponModsInclusive { get; set; }                                                               // TODO: Somewhere in this code is causing error's
+                                                                                                                    // TODO: Somewhere in this code is causing error's
+    public AFF_CounterConditions_Kills(dynamic input)                                                               // TODO: Somewhere in this code is causing error's
+    {                                                                                                               // TODO: Somewhere in this code is causing error's
+        foreach (var k in input.Keys)                                                                       // TODO: Somewhere in this code is causing error's
+        {                                                                                                           // TODO: Somewhere in this code is causing error's
+            switch (k)                                                                                              // TODO: Somewhere in this code is causing error's
+            {                                                                                                       // TODO: Somewhere in this code is causing error's
+             case "bodyPart": bodyPart = input["bodyPart"]; break;                                                  // TODO: Somewhere in this code is causing error's
+             case "compareMethod": compareMethod = input["compareMethod"]; break;                                   // TODO: Somewhere in this code is causing error's
+             case "conditinoType": conditionType = input["conditionType"]; break;                                   // TODO: Somewhere in this code is causing error's
+             case "daytime": daytime["from"] = input["daytime"]["from"];                                            // TODO: Somewhere in this code is causing error's
+                                daytime["to"] = input["daytime"]["to"]; break;                                      // TODO: Somewhere in this code is causing error's
+             case "dynamicLocale": dynamicLocale = input["dynamicLocale"]; break;                                   // TODO: Somewhere in this code is causing error's
+             case "enemyEquipmentExclusive": enemyEquipmentExclusive = input["enemyEquipmentExclusive"]; break;     // TODO: Somewhere in this code is causing error's
+             case "enemyEquipmentInclusive": enemyEquipmentInclusive = input["enemyEquipmentInclusive"]; break;     // TODO: Somewhere in this code is causing error's
+             case "enemyHealthEffects": enemyHealthEffects = input["enemyHealthEffects"]; break;                    // TODO: Somewhere in this code is causing error's
+             case "savageRole": savageRole = input["savageRole"]; break;                                            // TODO: Somewhere in this code is causing error's
+             case "target": target = input["target"]; break;                                                        // TODO: Somewhere in this code is causing error's
+             case "value": value = (int) input["value"]; break;                                                     // TODO: Somewhere in this code is causing error's
+             case "weapon": weapon = input["weapon"]; break;                                                        // TODO: Somewhere in this code is causing error's
+             case "weaponCaliber": weaponCaliber = input["weaponCaliber"]; break;                                   // TODO: Somewhere in this code is causing error's
+             case "weaponModsExclusive": weaponModsExclusive = input["weaponModsExclusive"]; break;                 // TODO: Somewhere in this code is causing error's
+             case "weaponModsInclusive": weaponModsInclusive = input["weaponModsInclusive"]; break;                 // TODO: Somewhere in this code is causing error's
+             default: conditions.Add(new CounterConditions(k,input[k])); break;                                 // TODO: Somewhere in this code is causing error's
+            }                                                                                                       // TODO: Somewhere in this code is causing error's
+        }                                                                                                           // TODO: Somewhere in this code is causing error's
+                                                                                                                    // TODO: Somewhere in this code is causing error's
+    }                                                                                                               // TODO: Somewhere in this code is causing error's
+}                                                                                                                   // TODO: Somewhere in this code is causing error's
 public class AFF_Counter : AFF
 {
     public int completeInSeconds { get; set; }
-    public List<AFF_CounterConditions> counter { get; set; }
+    public List<AFF_CounterConditions> counter { get; set; }  
     public bool doNotResetIfCounterCompleted { get; set; }
     public bool oneSessionOnly { get; set; }
     public string type { get; set; }
@@ -361,6 +406,13 @@ public class AFF_Counter : AFF
         try{ value = Int32.Parse(input["value"]); }catch{}
         try{ visibilityConditions = input["visibilityConditions"]; }catch{}
 
+        foreach (dynamic c in input["counter"]["conditions"])                                                       // TODO: Somewhere in this code is causing error's
+        {                                                                                                           // TODO: Somewhere in this code is causing error's
+            switch (c["conditionType"])                                                                             // TODO: Somewhere in this code is causing error's
+            {                                                                                                       // TODO: Somewhere in this code is causing error's
+                case "Kills": counter.Add(new AFF_CounterConditions_Kills(c)); break;                               // TODO: Somewhere in this code is causing error's
+            }                                                                                                       // TODO: Somewhere in this code is causing error's
+        }                                                                                                           // TODO: Somewhere in this code is causing error's
     }
 }
 

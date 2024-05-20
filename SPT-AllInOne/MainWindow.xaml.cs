@@ -13,7 +13,6 @@ public partial class MainWindow : Window
         InitializeComponent();
         // Utils.test();
         
-        // TODO: Build/Copy the quests.json file to the output directory
         var quests = Utils.readQuestsFile(QuestFilePath.Text);
         var locale = Utils.readLocaleFile(LocaleFilePath.Text);
         var enums = new FinishEnums();
@@ -60,12 +59,6 @@ public partial class MainWindow : Window
             IdName.Text = selectedQuest._id;
             QuestName.Text = locale[selectedQuest.name];
             CurrentQuest.Text = locale[selectedQuest.name];
-            TraderId.Text = selectedQuest.traderId; // TODO: This should be used to set a custom trader name
-            TraderComboBox.Text = selectedQuest.traderId; // TODO: We somehow need to cast to the ComboBox
-            LocationComboBox.Text = selectedQuest.location; // TODO: We somehow need to cast to the ComboBox
-            LocationId.Text = selectedQuest.location; // TODO: This should be used to set a custom location name (Typically never used)
-            SideComboBox.Text = selectedQuest.side; // TODO: We somehow need to cast to the ComboBox
-            TypeComboBox.Text = selectedQuest.type; // TODO: We somehow need to cast to the ComboBox
             TraderId.Text = selectedQuest.traderId + " (Disabled)"; // TODO: This should be used to set a custom trader name
             TraderComboBox.Text = enums.TRADER_IDS.TryGetValue(selectedQuest.traderId, out var traderName) ? traderName : selectedQuest.traderId;
             LocationComboBox.Text = enums.MAP_IDS.TryGetValue(selectedQuest.location, out var locationName) ? locationName : selectedQuest.location;
@@ -82,8 +75,6 @@ public partial class MainWindow : Window
             Description.Text = locale[selectedQuest.description];
             Fail.Text = locale[selectedQuest.failMessageText];
             Success.Text = locale[selectedQuest.successMessageText];
-            try{Change.Text = locale[selectedQuest.changeQuestMessageText];} catch {Change.Text = "Change Message (Disabled)";} // Are these even used?
-            try{Note.Text = locale[selectedQuest.note];} catch {Note.Text = "Note (Disabled)";} // Are these even used?
             try{Change.Text = locale[selectedQuest.changeQuestMessageText];} catch {Change.Text = "Change Message (Disabled)";} 
             try{Note.Text = locale[selectedQuest.note];} catch {Note.Text = "Note (Disabled)";}
         };
