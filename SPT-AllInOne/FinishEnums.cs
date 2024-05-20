@@ -1,5 +1,6 @@
 ﻿using System.Dynamic;
 using System.Transactions;
+using System.Windows.Documents;
 
 namespace SPT_AllInOne;
 public enum Traders
@@ -174,6 +175,15 @@ public class AFF_FindItem : AFF
         parentId = input["parentId"];
         target = input["target"];
         visibilityConditions = input["visibilityConditions"];
+
+        countInRaid = input["countInRaid"];
+        dogtagLevel = (int)input["dogtagLevel"];
+        isEncoded = input["isEncoded"];
+
+        maxDurability = Int32.Parse(input["maxDurability"].ToString());
+        minDurability = Int32.Parse(input["minDurability"].ToString());
+        onlyFoundInRaid = input["onlyFoundInRaid"];
+        value = input["value"].ToString();
     }
 }
 
@@ -197,6 +207,15 @@ public class AFF_DropItem : AFF
         parentId = input["parentId"];
         target = input["target"];
         visibilityConditions = input["visibilityConditions"];
+
+        zoneId = input["zoneId"];
+        plantTime = (int) input["plantTime"];
+        dogtagLevel = (int) input["dogtagLevel"];
+        isEncoded = input["isEncoded"];
+        maxDurability = (int) input["maxDurability"];
+        minDurability = (int) input["minDurability"];
+        onlyFoundInRaid = input["onlyFoundInRaid"];
+        value = input["value"].ToString();
     }
 }
 
@@ -227,10 +246,89 @@ public class AFF_HandoverItem : AFF
     }
 }
 
+public class CounterConditions
+{
+    public string name { get; set; }
+    public string compareMethod { get; set; }
+    public int value { get; set; }
+
+    public CounterConditions(string _name, dynamic input)
+    {
+        name = _name;
+        // Console.WriteLine($"Weapon Assembly Constructor: {input}");
+        compareMethod = input["compareMethod"];
+        value = (int)input["value"];
+    }
+}
+
+public class AFF_CounterConditions
+{
+    public string conditionType { get; set; }
+    public string compareMethod { get; set; }
+    public bool dynamicLocale { get; set; }
+    public string id { get; set; }
+    public bool resetOnSessionEnd { get; set; }
+    public string target { get; set; }
+    public int value { get; set; }
+
+    public AFF_CounterConditions()
+    {
+        
+    }
+
+    public AFF_CounterConditions(dynamic input)
+    {
+        
+    }
+    
+}
+
+public class AFF_CounterConditions_Kills : AFF_CounterConditions
+{
+    public string[] bodyPart { get; set; }
+    public Dictionary<string, int> daytime { get; set; }
+    public List<CounterConditions> conditions { get; set; }
+    public string[] enemyEquipmentExclusive { get; set; }
+    public string[] enemyEquipmentInclusive { get; set; }
+    public string[] enemyHealthEffects { get; set; }
+    public string[] savageRole { get; set; }
+    public string[] weapon { get; set; }
+    public string[] weaponCaliber { get; set; }
+    public string[] weaponModsExclusive { get; set; }
+    public string[] weaponModsInclusive { get; set; }
+
+    public AFF_CounterConditions_Kills(dynamic input)
+    {
+        foreach (var k in input.Keys)
+        {
+            switch (k)
+            {
+             case "bodyPart": bodyPart = input["bodyPart"]; break; 
+             case "compareMethod": compareMethod = input["compareMethod"]; break; 
+             case "conditinoType": conditionType = input["conditionType"]; break;
+             case "daytime": daytime["from"] = input["daytime"]["from"];
+                                daytime["to"] = input["daytime"]["to"]; break;
+             case "dynamicLocale": dynamicLocale = input["dynamicLocale"]; break;
+             case "enemyEquipmentExclusive": enemyEquipmentExclusive = input["enemyEquipmentExclusive"]; break;
+             case "enemyEquipmentInclusive": enemyEquipmentInclusive = input["enemyEquipmentInclusive"]; break;
+             case "enemyHealthEffects": enemyHealthEffects = input["enemyHealthEffects"]; break;
+             case "savageRole": savageRole = input["savageRole"]; break;
+             case "target": target = input["target"]; break;
+             case "value": value = (int) input["value"]; break;
+             case "weapon": weapon = input["weapon"]; break;
+             case "weaponCaliber": weaponCaliber = input["weaponCaliber"]; break;
+             case "weaponModsExclusive": weaponModsExclusive = input["weaponModsExclusive"]; break;
+             case "weaponModsInclusive": weaponModsInclusive = input["weaponModsInclusive"]; break;
+             default: conditions.Add(new CounterConditions(k,input[k])); break;
+            }
+        }
+
+    }
+}
 public class AFF_Counter : AFF
 {
     public int completeInSeconds { get; set; }
-    public dynamic counter { get; set; }
+    public List<AFF_CounterConditions> counter { get; set; }
     public bool doNotResetIfCounterCompleted { get; set; }
     public bool oneSessionOnly { get; set; }
     public string type { get; set; }
@@ -250,6 +348,14 @@ public class AFF_Counter : AFF
         try{ type = input["type"]; }catch{}
         try{ value = Int32.Parse(input["value"]); }catch{}
         try{ visibilityConditions = input["visibilityConditions"]; }catch{}
+
+        foreach (dynamic c in input["counter"]["conditions"])
+        {
+            switch (c["conditionType"])
+            {
+                case "Kills": counter.Add(new AFF_CounterConditions_Kills(c)); break;
+            }
+        }
     }
 }
 
