@@ -85,8 +85,8 @@
                 <TextBox Width="272" Background="#1F1A24" BorderBrush="#1F1A24" Margin="5, 0" Foreground="Red">Placeholder.png</TextBox>
                 <CheckBox x:Name="RestartableCheckBox" Margin="5, 0" Width="150" Foreground="#FFFFFF">Restartable</CheckBox>
                 <CheckBox x:Name="InstantCheckBox" Margin="5, 0" Width="140" Foreground="#FFFFFF">Instant Complete</CheckBox>
-                <ComboBox x:Name="SideComboBox" Width="151" Background="#332940" BorderBrush="#1F1A24" Margin="5, 0"/>
-                <ComboBox x:Name="TypeComboBox" Width="272" Background="#332940" BorderBrush="#1F1A24" Margin="5, 0"/>
+                <ComboBox x:Name="SideComboBox" Width="151" Background="#332940" BorderBrush="#1F1A24" Margin="5, 0">Side (Disabled)</ComboBox>
+                <ComboBox x:Name="TypeComboBox" Width="272" Background="#332940" BorderBrush="#1F1A24" Margin="5, 0">Type (Disabled)</ComboBox>
             </StackPanel>
             <StackPanel Height="830" Margin="4">
                 <TabControl Height="830" Background="#332940">

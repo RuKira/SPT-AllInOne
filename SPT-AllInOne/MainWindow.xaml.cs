@@ -1,15 +1,5 @@
-using System.CodeDom.Compiler;
-using System.Text;
 using System.Text.Json;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace SPT_AllInOne;
 
@@ -38,7 +28,7 @@ public partial class MainWindow : Window
     private void AppSetup(List<Quest> quests, dynamic locale, FinishEnums enums)
     {
         #region ComboBoxesSetup
-        foreach (var traders in enums.TRADER_IDS.Keys)
+        foreach (var traders in enums.TRADER_IDS.Values)
         {
             TraderComboBox.Items.Add(traders);
         }
@@ -48,7 +38,7 @@ public partial class MainWindow : Window
             SideComboBox.Items.Add(side);
         }
 
-        foreach (var location in enums.MAP_IDS.Keys)
+        foreach (var location in enums.MAP_IDS.Values)
         {
             LocationComboBox.Items.Add(location);
         }
@@ -76,6 +66,14 @@ public partial class MainWindow : Window
             LocationId.Text = selectedQuest.location; // TODO: This should be used to set a custom location name (Typically never used)
             SideComboBox.Text = selectedQuest.side; // TODO: We somehow need to cast to the ComboBox
             TypeComboBox.Text = selectedQuest.type; // TODO: We somehow need to cast to the ComboBox
+            TraderId.Text = selectedQuest.traderId + " (Disabled)"; // TODO: This should be used to set a custom trader name
+            TraderComboBox.Text = enums.TRADER_IDS.TryGetValue(selectedQuest.traderId, out var traderName) ? traderName : selectedQuest.traderId;
+            LocationComboBox.Text = enums.MAP_IDS.TryGetValue(selectedQuest.location, out var locationName) ? locationName : selectedQuest.location;
+            LocationId.Text = selectedQuest.location + " (Disabled)"; // TODO: This should be used to set a custom location name (Typically never used)
+            //SideComboBox.Text = enums.SIDE.TryGetValue(selectedQuest.side, out var sideName) ? sideName : selectedQuest.side; // TODO: Fix so this works
+            SideComboBox.Text = "Side (Disabled)";
+            //TypeComboBox.Text = enums.ROOT_CONDITIONS.TryGetValue(selectedQuest.type, out var typeName) ? typeName : selectedQuest.type; // TODO: Fix so this works
+            TypeComboBox.Text = "Type (Disabled)";
             RestartableCheckBox.IsChecked = selectedQuest.restartable;
             InstantCheckBox.IsChecked = selectedQuest.instantComplete;
             SecretCheckBox.IsChecked = selectedQuest.secretQuest;
@@ -86,6 +84,8 @@ public partial class MainWindow : Window
             Success.Text = locale[selectedQuest.successMessageText];
             try{Change.Text = locale[selectedQuest.changeQuestMessageText];} catch {Change.Text = "Change Message (Disabled)";} // Are these even used?
             try{Note.Text = locale[selectedQuest.note];} catch {Note.Text = "Note (Disabled)";} // Are these even used?
+            try{Change.Text = locale[selectedQuest.changeQuestMessageText];} catch {Change.Text = "Change Message (Disabled)";} 
+            try{Note.Text = locale[selectedQuest.note];} catch {Note.Text = "Note (Disabled)";}
         };
     }
 }

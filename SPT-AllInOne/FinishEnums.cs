@@ -85,6 +85,15 @@ public class FinishEnums
         ROOT_CONDITIONS[RootConditionTypes.LeaveItem] = "LeaveItemAtLocation"; 
         ROOT_CONDITIONS[RootConditionTypes.WeaponAssembly] = "WeaponAssembly"; 
         ROOT_CONDITIONS[RootConditionTypes.PlaceBeacon] = "PlaceBeacon"; 
+        ROOT_CONDITIONS = new Dictionary<RootConditionTypes, string>
+        {
+            [RootConditionTypes.Counter] = "CounterCreator",
+            [RootConditionTypes.FindItem] = "FindItem",
+            [RootConditionTypes.HandoverItem] = "HandoverItem",
+            [RootConditionTypes.LeaveItem] = "LeaveItemAtLocation",
+            [RootConditionTypes.WeaponAssembly] = "WeaponAssembly",
+            [RootConditionTypes.PlaceBeacon] = "PlaceBeacon"
+        };
     }
 
     public void sidesSetup()
@@ -94,6 +103,13 @@ public class FinishEnums
         SIDE[Sides.BEAR] = "bear";
         SIDE[Sides.USEC] = "usec";
         SIDE[Sides.SCAV] = "savages";
+        SIDE = new Dictionary<Sides, string>
+        {
+            [Sides.PMC] = "pmc",
+            [Sides.BEAR] = "bear",
+            [Sides.USEC] = "usec",
+            [Sides.SCAV] = "savages"
+        };
     }
     public void mapsSetup()
     {
@@ -124,6 +140,37 @@ public class FinishEnums
         MAP_IDS["Shoreline"] = "5704e554d2720bac5b8b456e";
         MAP_IDS["Streets"] = "5714dc692459777137212e12";
         MAP_IDS["Woods"] = "5704e3c2d2720bac5b8b4567";
+        //MAP_IDS = new Dictionary<string, string>
+        //{
+        //    ["any"] = "any",
+        //    ["Customs"] = "56f40101d2720b2a4d8b45d6",
+        //    ["FactoryDay"] = "55f2d3fd4bdc2d5f408b4567",
+        //    ["FactoryNight"] = "59fc81d786f774390775787e",
+        //    ["GroundZero"] = "653e6760052c01c1c805532f",
+        //    ["Interchange"] = "5714dbc024597771384a510d",
+        //    ["Labs"] = "5b0fc42d86f7744a585f9105",
+        //    ["Lighthouse"] = "5704e4dad2720bb55b8b4567",
+        //    ["Reserve"] = "5704e5fad2720bc05b8b4567",
+        //    ["Shoreline"] = "5704e554d2720bac5b8b456e",
+        //    ["Streets"] = "5714dc692459777137212e12",
+        //    ["Woods"] = "5704e3c2d2720bac5b8b4567"
+        //};
+
+        MAP_IDS = new Dictionary<string, string>
+        {
+            ["any"] = "any",
+            ["56f40101d2720b2a4d8b45d6"] = "Customs",
+            ["55f2d3fd4bdc2d5f408b4567"] = "FactoryDay",
+            ["59fc81d786f774390775787e"] = "FactoryNight",
+            ["653e6760052c01c1c805532f"] = "GroundZero",
+            ["5714dbc024597771384a510d"] = "Interchange",
+            ["5b0fc42d86f7744a585f9105"] = "Labs",
+            ["5704e4dad2720bb55b8b4567"] = "Lighthouse",
+            ["5704e5fad2720bc05b8b4567"] = "Reserve",
+            ["5704e554d2720bac5b8b456e"] = "Shoreline",
+            ["5714dc692459777137212e12"] = "Streets",
+            ["5704e3c2d2720bac5b8b4567"] = "Woods"
+        };
     }
     public void tradersSetup()
     {
@@ -146,6 +193,29 @@ public class FinishEnums
         TRADER_IDS["Mechanic"] = "5a7c2eca46aef81a7ca2145d";
         TRADER_IDS["Ragman"] = "5ac3b934156ae10c4430e83c";
         TRADER_IDS["Jager"] = "5c0647fdd443bc2504c2d371";
+        //TRADER_IDS = new Dictionary<string, string>
+        //{
+        //    ["Fence"] = "579dc571d53a0658a154fbec",
+        //    ["Prapor"] = "54cb50c76803fa8b248b4571",
+        //    ["Therapist"] = "54cb57776803fa99248b456e",
+        //    ["Skier"] = "58330581ace78e27b8b10cee",
+        //    ["Peacekeeper"] = "5935c25fb3acc3127c3d8cd9",
+        //    ["Mechanic"] = "5a7c2eca46aef81a7ca2145d",
+        //    ["Ragman"] = "5ac3b934156ae10c4430e83c",
+        //    ["Jager"] = "5c0647fdd443bc2504c2d371"
+        //};
+
+        TRADER_IDS = new Dictionary<string, string>
+        {
+            ["579dc571d53a0658a154fbec"] = "Fence",
+            ["54cb50c76803fa8b248b4571"] = "Prapor",
+            ["54cb57776803fa99248b456e"] = "Therapist",
+            ["58330581ace78e27b8b10cee"] = "Skier",
+            ["5935c25fb3acc3127c3d8cd9"] = "Peacekeeper",
+            ["5a7c2eca46aef81a7ca2145d"] = "Mechanic",
+            ["5ac3b934156ae10c4430e83c"] = "Ragman",
+            ["5c0647fdd443bc2504c2d371"] = "Jager"
+        };
     }
 }
 
@@ -197,14 +267,7 @@ public class AFF_FindItem : AFF
         target = input["target"];
         visibilityConditions = input["visibilityConditions"];
 
-        countInRaid = input["countInRaid"];
-        dogtagLevel = (int)input["dogtagLevel"];
-        isEncoded = input["isEncoded"];
 
-        maxDurability = Int32.Parse(input["maxDurability"].ToString());
-        minDurability = Int32.Parse(input["minDurability"].ToString());
-        onlyFoundInRaid = input["onlyFoundInRaid"];
-        value = input["value"].ToString();
     }
 }
 
@@ -229,14 +292,6 @@ public class AFF_DropItem : AFF
         target = input["target"];
         visibilityConditions = input["visibilityConditions"];
 
-        zoneId = input["zoneId"];
-        plantTime = (int) input["plantTime"];
-        dogtagLevel = (int) input["dogtagLevel"];
-        isEncoded = input["isEncoded"];
-        maxDurability = (int) input["maxDurability"];
-        minDurability = (int) input["minDurability"];
-        onlyFoundInRaid = input["onlyFoundInRaid"];
-        value = input["value"].ToString();
     }
 }
 
@@ -282,70 +337,6 @@ public class CounterConditions
     }
 }
 
-public class AFF_CounterConditions
-{
-    public string conditionType { get; set; }
-    public string compareMethod { get; set; }
-    public bool dynamicLocale { get; set; }
-    public string id { get; set; }
-    public bool resetOnSessionEnd { get; set; }
-    public string target { get; set; }
-    public int value { get; set; }
-
-    public AFF_CounterConditions()
-    {
-        
-    }
-
-    public AFF_CounterConditions(dynamic input)
-    {
-        
-    }
-    
-}
-
-public class AFF_CounterConditions_Kills : AFF_CounterConditions
-{
-    public string[] bodyPart { get; set; }
-    public Dictionary<string, int> daytime { get; set; }
-    public List<CounterConditions> conditions { get; set; }
-    public string[] enemyEquipmentExclusive { get; set; }
-    public string[] enemyEquipmentInclusive { get; set; }
-    public string[] enemyHealthEffects { get; set; }
-    public string[] savageRole { get; set; }
-    public string[] weapon { get; set; }
-    public string[] weaponCaliber { get; set; }
-    public string[] weaponModsExclusive { get; set; }
-    public string[] weaponModsInclusive { get; set; }
-
-    public AFF_CounterConditions_Kills(dynamic input)
-    {
-        foreach (var k in input.Keys)
-        {
-            switch (k)
-            {
-             case "bodyPart": bodyPart = input["bodyPart"]; break; 
-             case "compareMethod": compareMethod = input["compareMethod"]; break; 
-             case "conditinoType": conditionType = input["conditionType"]; break;
-             case "daytime": daytime["from"] = input["daytime"]["from"];
-                                daytime["to"] = input["daytime"]["to"]; break;
-             case "dynamicLocale": dynamicLocale = input["dynamicLocale"]; break;
-             case "enemyEquipmentExclusive": enemyEquipmentExclusive = input["enemyEquipmentExclusive"]; break;
-             case "enemyEquipmentInclusive": enemyEquipmentInclusive = input["enemyEquipmentInclusive"]; break;
-             case "enemyHealthEffects": enemyHealthEffects = input["enemyHealthEffects"]; break;
-             case "savageRole": savageRole = input["savageRole"]; break;
-             case "target": target = input["target"]; break;
-             case "value": value = (int) input["value"]; break;
-             case "weapon": weapon = input["weapon"]; break;
-             case "weaponCaliber": weaponCaliber = input["weaponCaliber"]; break;
-             case "weaponModsExclusive": weaponModsExclusive = input["weaponModsExclusive"]; break;
-             case "weaponModsInclusive": weaponModsInclusive = input["weaponModsInclusive"]; break;
-             default: conditions.Add(new CounterConditions(k,input[k])); break;
-            }
-        }
-
-    }
-}
 public class AFF_Counter : AFF
 {
     public int completeInSeconds { get; set; }
@@ -370,13 +361,6 @@ public class AFF_Counter : AFF
         try{ value = Int32.Parse(input["value"]); }catch{}
         try{ visibilityConditions = input["visibilityConditions"]; }catch{}
 
-        foreach (dynamic c in input["counter"]["conditions"])
-        {
-            switch (c["conditionType"])
-            {
-                case "Kills": counter.Add(new AFF_CounterConditions_Kills(c)); break;
-            }
-        }
     }
 }
 
