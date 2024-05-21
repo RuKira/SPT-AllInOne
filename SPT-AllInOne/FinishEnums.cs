@@ -312,7 +312,7 @@ public class CounterConditions
     public CounterConditions(string _name, dynamic input)
     {
         name = _name;
-        // Console.WriteLine($"Weapon Assembly Constructor: {input}");
+        Console.WriteLine($"Weapon Assembly Constructor: {name} | {input}");
         compareMethod = input["compareMethod"];
         value = (int)input["value"];
     }
@@ -342,45 +342,63 @@ public class AFF_CounterConditions                                              
 
 public class AFF_CounterConditions_Kills : AFF_CounterConditions                                                    // TODO: Somewhere in this code is causing error's
 {                                                                                                                   // TODO: Somewhere in this code is causing error's
-    public string[] bodyPart { get; set; }                                                                          // TODO: Somewhere in this code is causing error's
+    public List<string> bodyPart { get; set; }                                                                          // TODO: Somewhere in this code is causing error's
     public Dictionary<string, int> daytime { get; set; }                                                            // TODO: Somewhere in this code is causing error's
     public List<CounterConditions> conditions { get; set; }                                                         // TODO: Somewhere in this code is causing error's
-    public string[] enemyEquipmentExclusive { get; set; }                                                           // TODO: Somewhere in this code is causing error's
-    public string[] enemyEquipmentInclusive { get; set; }                                                           // TODO: Somewhere in this code is causing error's
-    public string[] enemyHealthEffects { get; set; }                                                                // TODO: Somewhere in this code is causing error's
-    public string[] savageRole { get; set; }                                                                        // TODO: Somewhere in this code is causing error's
-    public string[] weapon { get; set; }                                                                            // TODO: Somewhere in this code is causing error's
-    public string[] weaponCaliber { get; set; }                                                                     // TODO: Somewhere in this code is causing error's
-    public string[] weaponModsExclusive { get; set; }                                                               // TODO: Somewhere in this code is causing error's
-    public string[] weaponModsInclusive { get; set; }                                                               // TODO: Somewhere in this code is causing error's
+    public List<string> enemyEquipmentExclusive { get; set; }                                                           // TODO: Somewhere in this code is causing error's
+    public List<string> enemyEquipmentInclusive { get; set; }                                                           // TODO: Somewhere in this code is causing error's
+    public List<string> enemyHealthEffects { get; set; }                                                                // TODO: Somewhere in this code is causing error's
+    public List<string> savageRole { get; set; }                                                                        // TODO: Somewhere in this code is causing error's
+    public List<string> weapon { get; set; }                                                                            // TODO: Somewhere in this code is causing error's
+    public List<string> weaponCaliber { get; set; }                                                                     // TODO: Somewhere in this code is causing error's
+    public List<string> weaponModsExclusive { get; set; }                                                               // TODO: Somewhere in this code is causing error's
+    public List<string> weaponModsInclusive { get; set; }                                                               // TODO: Somewhere in this code is causing error's
                                                                                                                     // TODO: Somewhere in this code is causing error's
     public AFF_CounterConditions_Kills(dynamic input)                                                               // TODO: Somewhere in this code is causing error's
-    {                                                                                                               // TODO: Somewhere in this code is causing error's
+    {
+        bodyPart = new List<string>();
+        daytime = new Dictionary<string, int>();
+        conditions = new List<CounterConditions>();
         foreach (var k in input.Keys)                                                                       // TODO: Somewhere in this code is causing error's
         {                                                                                                           // TODO: Somewhere in this code is causing error's
             switch (k)                                                                                              // TODO: Somewhere in this code is causing error's
             {                                                                                                       // TODO: Somewhere in this code is causing error's
-             case "bodyPart": bodyPart = input["bodyPart"]; break;                                                  // TODO: Somewhere in this code is causing error's
+             case "bodyPart": foreach(var b in input["bodyPart"]) bodyPart.Add(b); break;
              case "compareMethod": compareMethod = input["compareMethod"]; break;                                   // TODO: Somewhere in this code is causing error's
-             case "conditinoType": conditionType = input["conditionType"]; break;                                   // TODO: Somewhere in this code is causing error's
-             case "daytime": daytime["from"] = input["daytime"]["from"];                                            // TODO: Somewhere in this code is causing error's
-                                daytime["to"] = input["daytime"]["to"]; break;                                      // TODO: Somewhere in this code is causing error's
+             case "conditionType": conditionType = input["conditionType"]; break;                                   // TODO: Somewhere in this code is causing error's
+             case "daytime": daytime["from"] = (int)input["daytime"]["from"];                                            // TODO: Somewhere in this code is causing error's
+                                daytime["to"] = (int)input["daytime"]["to"]; break;                                      // TODO: Somewhere in this code is causing error's
              case "dynamicLocale": dynamicLocale = input["dynamicLocale"]; break;                                   // TODO: Somewhere in this code is causing error's
-             case "enemyEquipmentExclusive": enemyEquipmentExclusive = input["enemyEquipmentExclusive"]; break;     // TODO: Somewhere in this code is causing error's
-             case "enemyEquipmentInclusive": enemyEquipmentInclusive = input["enemyEquipmentInclusive"]; break;     // TODO: Somewhere in this code is causing error's
-             case "enemyHealthEffects": enemyHealthEffects = input["enemyHealthEffects"]; break;                    // TODO: Somewhere in this code is causing error's
-             case "savageRole": savageRole = input["savageRole"]; break;                                            // TODO: Somewhere in this code is causing error's
+             case "enemyEquipmentExclusive": enemyEquipmentExclusive = getStringList(input["enemyEquipmentExclusive"]); break;
+             case "enemyEquipmentInclusive": enemyEquipmentInclusive = getStringList(input["enemyEquipmentInclusive"]); break;     // TODO: Somewhere in this code is causing error's
+             case "enemyHealthEffects": enemyHealthEffects = getStringList(input["enemyHealthEffects"]); break;                    // TODO: Somewhere in this code is causing error's
+             case "id": id = input["id"]; break;
+             case "resetOnSessionEnd": resetOnSessionEnd = input["resetOnSessionEnd"]; break;
+             case "savageRole": savageRole = getStringList(input["savageRole"]); break;                                            // TODO: Somewhere in this code is causing error's
              case "target": target = input["target"]; break;                                                        // TODO: Somewhere in this code is causing error's
-             case "value": value = (int) input["value"]; break;                                                     // TODO: Somewhere in this code is causing error's
-             case "weapon": weapon = input["weapon"]; break;                                                        // TODO: Somewhere in this code is causing error's
-             case "weaponCaliber": weaponCaliber = input["weaponCaliber"]; break;                                   // TODO: Somewhere in this code is causing error's
-             case "weaponModsExclusive": weaponModsExclusive = input["weaponModsExclusive"]; break;                 // TODO: Somewhere in this code is causing error's
-             case "weaponModsInclusive": weaponModsInclusive = input["weaponModsInclusive"]; break;                 // TODO: Somewhere in this code is causing error's
+             case "value": value = Int32.Parse(input["value"].ToString()); break;                                                     // TODO: Somewhere in this code is causing error's
+             case "weapon": weapon = getStringList(input["weapon"]); break;                                                        // TODO: Somewhere in this code is causing error's
+             case "weaponCaliber": weaponCaliber = getStringList(input["weaponCaliber"]); break;                                   // TODO: Somewhere in this code is causing error's
+             case "weaponModsExclusive": weaponModsExclusive = getStringList(input["weaponModsExclusive"]); break;                 // TODO: Somewhere in this code is causing error's
+             case "weaponModsInclusive": weaponModsInclusive = getStringList(input["weaponModsInclusive"]); break;                 // TODO: Somewhere in this code is causing error's
              default: conditions.Add(new CounterConditions(k,input[k])); break;                                 // TODO: Somewhere in this code is causing error's
             }                                                                                                       // TODO: Somewhere in this code is causing error's
         }                                                                                                           // TODO: Somewhere in this code is causing error's
                                                                                                                     // TODO: Somewhere in this code is causing error's
-    }                                                                                                               // TODO: Somewhere in this code is causing error's
+    }
+
+    protected List<string> getStringList(List<dynamic> input)
+    {
+        List<string> temp = new List<string>();
+        if (input.Count < 1)
+            return temp;
+        
+        foreach(var i in input)
+            temp.Add(i.ToString());
+
+        return temp;
+
+    }
 }                                                                                                                   // TODO: Somewhere in this code is causing error's
 public class AFF_Counter : AFF
 {
@@ -405,6 +423,8 @@ public class AFF_Counter : AFF
         try{ type = input["type"]; }catch{}
         try{ value = Int32.Parse(input["value"]); }catch{}
         try{ visibilityConditions = input["visibilityConditions"]; }catch{}
+
+        counter = new List<AFF_CounterConditions>();
 
         foreach (dynamic c in input["counter"]["conditions"])                                                       // TODO: Somewhere in this code is causing error's
         {                                                                                                           // TODO: Somewhere in this code is causing error's
