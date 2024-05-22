@@ -36,4 +36,14 @@ public class Utils
         
         return objects;
     }
+    
+    public static string generateId()
+    {
+        // Create a 24 character long random ID for the quest
+        const string chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+        var random = new Random();
+        var id = new string(Enumerable.Repeat(chars, 24).Select(s => s[random.Next(s.Length)]).ToArray());
+        Console.WriteLine(id);
+        return id;
+    }
 }

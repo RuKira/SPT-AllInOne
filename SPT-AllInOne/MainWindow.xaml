@@ -35,6 +35,7 @@
             <MenuItem Height="Auto" Width="Auto" Header="_Tools">                                                           <!-- TODO: This will be dead for a bit, but will be used for the Trader Creation, and other things not related to this MainWindow -->
                 <MenuItem Height="Auto" Width="Auto" Header="Trader Creator (Disabled)"/>                                   <!-- TODO: Easy tool to create a custom trader -->
                 <MenuItem Height="Auto" Width="Auto" Header="Configuration Editor (Disabled)"/>                             <!-- TODO: Think of SVM, but... more in depth -->
+                <MenuItem x:Name="IdGen" Height="Auto" Width="Auto" Header="ID Generator" Click="IdGen_OnClick" ToolTip="This will generate a random 24 Character ID, and set it to your clipboard"/>                                 <!-- TODO: Just creates a 24 Char ID at random -->
             </MenuItem>
         </Menu>
         <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left">
