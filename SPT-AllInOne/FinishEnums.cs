@@ -33,12 +33,24 @@ public class FinishEnums
     {
         ROOT_CONDITIONS = new List<string>
         {
-            "CounterCreator",
-            "FindItem",
-            "HandoverItem",
-            "LeaveItemAtLocation",
+            // TODO: These seem to tbe the "correct" conditions, but they are not the known ones, so needs to be researched into
+            //"CounterCreator",
+            "Elimination",
+            //"FindItem",
+            "PickUp",
+            //"HandoverItem",
+            //"LeaveItemAtLocation",
             "WeaponAssembly",
-            "PlaceBeacon"
+            //"PlaceBeacon",
+            "Completion",
+            "Discover",
+            "Exploration",
+            "Multi",
+            "Skill",
+            "Merchant",
+            "Standing",
+            "Experience",
+            "Loyalty",
         };
     }
 
@@ -46,10 +58,10 @@ public class FinishEnums
     {
         SIDE = new List<string>
         {
-            "pmc",
-            "bear",
-            "usec",
-            "savages"
+            "Pmc",
+            "Bear",
+            "Usec",
+            "Savages"
         };
     }
     public void mapsSetup()

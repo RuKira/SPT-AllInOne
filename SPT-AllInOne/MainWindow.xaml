@@ -61,9 +61,7 @@
                 </StackPanel>
                 <StackPanel>
                     <TextBlock x:Name="CurrentQuest" Margin="3" Height="20" Width="347" Foreground="#FFFFFF" Background="#1F1A24">Current Quest</TextBlock>
-                    <ListBox x:Name="QuestListBox" Margin="3" Width="347" Height="400" Background="#1F1A24" Foreground="#FFFFFF"/>
-                    <Button Margin="3" Width="347" Background="#332940" Foreground="#FFFFFF">Clear Console</Button>
-                    <TextBlock Height="320" Width="348" Background="#1F1A24" Margin="3" Foreground="#FFFFFF">Quest Error Console</TextBlock>
+                    <ListBox x:Name="QuestListBox" Margin="3" Width="347" Height="753" Background="#1F1A24" Foreground="#FFFFFF"/>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
@@ -172,7 +170,7 @@
                     </TabItem>
                     <TabItem Height="Auto" Width="122" Background="#FFA9D1F4" BorderBrush="#121212" Header="Available For Finish">
                         <TabControl Background="#332940">
-                            <TabItem Header="Loyalty and Skill" Background="DarkGray" BorderBrush="#121212">
+                            <TabItem Header="Quest and Skill and Loyalty" Background="DarkGray" BorderBrush="#121212">
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto"/>
@@ -185,14 +183,101 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
-                                    <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF">Loyalty</Label>
-                                
-                                
-                                    <Label Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF">Skill</Label>
+                                    <StackPanel Grid.Row="0" Grid.Column="0" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                        <Label Width="Auto" Height="Auto" Content="Quest" Foreground="#FFFFFF"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="0" Margin="5" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                        <TextBox Margin="5" Width="140" Height="Auto" BorderBrush="#1F1A24" Foreground="#FFFFFF" Background="#1F1A24">Id</TextBox>
+                                        <CheckBox Margin="5" Width="140" Height="Auto" Foreground="#FFFFFF">Dynamic Locale</CheckBox>
+                                        <Button Margin="5" Width="140" Height="Auto" BorderBrush="#332940" Background="#332940">Add</Button>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Grid.Column="0" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                        <ComboBox Margin="5" Width="140" Height="Auto" BorderBrush="#332940" Background="#332940">Status</ComboBox>
+                                        <Button Margin="155. 5" Width="140" Height="Auto" BorderBrush="#332940" Background="#332940">Remove</Button>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="3" Grid.Column="0" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                        <TextBox Width="450" Height="171" Background="#1F1A24" BorderBrush="#1F1A24" Foreground="#FFFFFF">Data</TextBox>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="4" Grid.Column="0" Margin="5" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                        <ListBox Width="450" Height="395" Background="#1F1A24" Foreground="#FFFFFF">
+                                            <ListBoxItem>Example Condition 1</ListBoxItem>
+                                            <ListBoxItem>Example Condition 2</ListBoxItem>
+                                            <ListBoxItem>Example Condition 3</ListBoxItem>
+                                            <ListBoxItem>Example Condition 4</ListBoxItem>
+                                        </ListBox>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="1" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                        <Label Width="Auto" Height="Auto" Content="Skill/Loyalty" Foreground="#FFFFFF"/>                                    
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="1" Margin="5" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
+                                        <ComboBox Margin="58, 5" Width="140" Height="Auto" Background="#332940" BorderBrush="#332940" Text="Skill">
+                                            <ComboBoxItem Content="Skill" IsSelected="True"/>
+                                            <ComboBoxItem Content="Loyalty"/>
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="1" Margin="5" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                        <TextBox Margin="5" Width="140" Height="Auto" BorderBrush="#1F1A24" Foreground="#FFFFFF" Background="#1F1A24">Id</TextBox>
+                                        <CheckBox Margin="5" Width="140" Height="Auto" Foreground="#FFFFFF">Dynamic Locale</CheckBox>
+                                        <Button Margin="5" Width="140" Height="Auto" BorderBrush="#332940" Background="#332940">Add</Button>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Grid.Column="1" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                        <ComboBox Margin="5" Width="140" Height="Auto" BorderBrush="#332940" Background="#332940">Status</ComboBox>
+                                        <Button Margin="155. 5" Width="140" Height="Auto" BorderBrush="#332940" Background="#332940">Remove</Button>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="3" Grid.Column="1" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                        <TextBox Width="450" Height="171" Background="#1F1A24" BorderBrush="#1F1A24" Foreground="#FFFFFF">Data</TextBox>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="4" Grid.Column="1" Margin="5" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                        <ListBox Width="450" Height="395" Background="#1F1A24" Foreground="#FFFFFF"> 
+                                            <ListBoxItem>Example Condition 1</ListBoxItem>
+                                            <ListBoxItem>Example Condition 2</ListBoxItem>
+                                            <ListBoxItem>Example Condition 3</ListBoxItem>
+                                            <ListBoxItem>Example Condition 4</ListBoxItem>
+                                        </ListBox>
+                                    </StackPanel>
                                 </Grid>
                             </TabItem>
-                            <TabItem Header="Items" Background="DarkGray" BorderBrush="#121212"/>
-                            <TabItem Header="Visit and Kills" Background="DarkGray" BorderBrush="#121212"/>
+                            <TabItem Header="Handover Item and Find Items" Background="DarkGray" BorderBrush="#121212">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF">Handover Item</Label>
+                                    
+                                    
+                                    <Label Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF">Find Items</Label>
+                                </Grid>
+                            </TabItem>
+                            <TabItem Header="Place Beacon and Leave Item" Background="DarkGray" BorderBrush="#121212">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF">Place Beacon</Label>
+                                    
+                                    
+                                    <Label Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF">Leave Item At Location</Label>
+                                </Grid>
+                            </TabItem>
+                            <TabItem Header="Counter Creator (Read Only)" Background="DarkGray" BorderBrush="#121212"/>
+                            <TabItem Header="Weapon Assembly (Read Only)" Background="DarkGray" BorderBrush="#121212"/>
+
                         </TabControl>
                     </TabItem>
                     <TabItem Height="Auto" Width="60" Background="#FFA9D1F4" BorderBrush="#121212" Header="Fail"> 

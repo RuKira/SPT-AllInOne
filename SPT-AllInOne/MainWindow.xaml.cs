@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
@@ -49,8 +48,8 @@ public partial class MainWindow : Window
             CurrentQuest.Text = locale[selectedQuest.name];
             TraderComboBox.Text = enums.TRADER_IDS.TryGetValue(selectedQuest.traderId, out var traderName) ? traderName : selectedQuest.traderId;
             LocationComboBox.Text = enums.MAP_IDS.TryGetValue(selectedQuest.location, out var locationName) ? locationName : selectedQuest.location;
-            //SideComboBox.Text = enums.SIDE.TryGetValue(selectedQuest.side, out var sideName) ? sideName : selectedQuest.side; // TODO: Fix so this works
-            //TypeComboBox.Text = enums.ROOT_CONDITIONS.TryGetValue(selectedQuest.type, out var typeName) ? typeName : selectedQuest.type; // TODO: Fix so this works
+            SideComboBox.Text = selectedQuest.side;
+            TypeComboBox.Text = selectedQuest.type;
             RestartableCheckBox.IsChecked = selectedQuest.restartable;
             InstantCheckBox.IsChecked = selectedQuest.instantComplete;
             SecretCheckBox.IsChecked = selectedQuest.secretQuest;
@@ -101,8 +100,6 @@ public partial class MainWindow : Window
 
         TraderId.Text = "TraderID - Not available for 0.0.1-Alpha";
         LocationId.Text = "LocationID - Not available for 0.0.1-Alpha";
-        SideComboBox.Text = "Side (Disabled)";
-        TypeComboBox.Text = "Type (Disabled)";
         Change.Text = "Not available for 0.0.1-Alpha";
         Note.Text = "Not available for 0.0.1-Alpha";
 
