@@ -9,24 +9,23 @@ namespace SPT_AllInOne;
 /// </summary>
 public partial class MainWindow : Window
 {
+    #region Variables
+    private List<Quest> _quests = Utils.readQuestsFile("~/../../../../Data/quests.json");
+    private readonly dynamic _locale = Utils.readLocaleFile("~/../../../../Data/locale.json");
+    private readonly FinishEnums _enums = new FinishEnums();
+    #endregion
+
     public MainWindow()
     {
         InitializeComponent();
         // Utils.test();
-
-        var quests = Utils.readQuestsFile(QuestFilePath.Text);
-        var locale = Utils.readLocaleFile(LocaleFilePath.Text);
-        var enums = new FinishEnums();
-
-        #pragma warning disable CA1869
-        // Console.WriteLine(JsonSerializer.Serialize(quests[0], new JsonSerializerOptions { WriteIndented = true }));
         
-        QuestSetup(quests, locale, enums);
+        AppStartup(_quests, _enums);
         
         // Close();
     }
 
-    #region MainWindow Event Handlers
+    #region Event Handlers
 
     private void IdGen_OnClick(object sender, RoutedEventArgs e)
     {
@@ -34,32 +33,38 @@ public partial class MainWindow : Window
         Clipboard.SetText(IdName.Text);
     }
 
-    #endregion
-
-    private void QuestSetup(List<Quest> quests, dynamic locale, FinishEnums enums)
+    private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
     {
-        AppStartup(quests, enums);
-        
-        QuestListBox.SelectionChanged += (sender, args) =>
-        {
-            var selectedQuest = quests[QuestListBox.SelectedIndex];
-            IdName.Text = selectedQuest._id;
-            QuestName.Text = locale[selectedQuest.name];
-            CurrentQuest.Text = locale[selectedQuest.name];
-            TraderComboBox.Text = enums.TRADER_IDS.TryGetValue(selectedQuest.traderId, out var traderName) ? traderName : selectedQuest.traderId;
-            LocationComboBox.Text = enums.MAP_IDS.TryGetValue(selectedQuest.location, out var locationName) ? locationName : selectedQuest.location;
-            SideComboBox.Text = selectedQuest.side;
-            TypeComboBox.Text = selectedQuest.type;
-            RestartableCheckBox.IsChecked = selectedQuest.restartable;
-            InstantCheckBox.IsChecked = selectedQuest.instantComplete;
-            SecretCheckBox.IsChecked = selectedQuest.secretQuest;
-            NotificationCheckBox.IsChecked = selectedQuest.canShowNotificationsInGame;
-            KeyCheckBox.IsChecked = selectedQuest.isKey;
-            Description.Text = locale[selectedQuest.description];
-            Fail.Text = locale[selectedQuest.failMessageText];
-            Success.Text = locale[selectedQuest.successMessageText];
-        };
+        var selectedQuest = _quests[QuestListBox.SelectedIndex];
+        IdName.Text = selectedQuest._id;
+        QuestName.Text = _locale[selectedQuest.name];
+        TraderComboBox.Text = _enums.TRADER_IDS.TryGetValue(selectedQuest.traderId, out var traderName) ? traderName : selectedQuest.traderId;
+        LocationComboBox.Text = _enums.MAP_IDS.TryGetValue(selectedQuest.location, out var locationName) ? locationName : selectedQuest.location;
+        SideComboBox.Text = selectedQuest.side;
+        TypeComboBox.Text = selectedQuest.type;
+        RestartableCheckBox.IsChecked = selectedQuest.restartable;
+        InstantCheckBox.IsChecked = selectedQuest.instantComplete;
+        SecretCheckBox.IsChecked = selectedQuest.secretQuest;
+        NotificationCheckBox.IsChecked = selectedQuest.canShowNotificationsInGame;
+        KeyCheckBox.IsChecked = selectedQuest.isKey;
+        Description.Text = _locale[selectedQuest.description];
+        Fail.Text = _locale[selectedQuest.failMessageText];
+        Success.Text = _locale[selectedQuest.successMessageText];
     }
+
+    private void SearchQuest_OnTextChanged(object sender, TextChangedEventArgs e)
+    {
+        QuestListBox.Items.Clear();
+        foreach (var quest in _quests)
+        {
+            if (quest.questName.ToLower().Contains(SearchQuest.Text.ToLower()))
+            {
+                QuestListBox.Items.Add(quest.questName);
+            }
+        }
+    }
+
+    #endregion
 
     private void AppStartup(List<Quest> quests, FinishEnums enums)
     {
@@ -98,6 +103,8 @@ public partial class MainWindow : Window
 
         #region DefaultParams
 
+        QuestFilePath.Text = "Quests file path - Disabled";
+        LocaleFilePath.Text = "Locale file path - Disabled";
         TraderId.Text = "TraderID - Not available for 0.0.1-Alpha";
         LocationId.Text = "LocationID - Not available for 0.0.1-Alpha";
         Change.Text = "Not available for 0.0.1-Alpha";
@@ -105,4 +112,5 @@ public partial class MainWindow : Window
 
         #endregion
     }
+    
 }

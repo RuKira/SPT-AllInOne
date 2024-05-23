@@ -55,13 +55,13 @@
                     <Button Margin="3" Width="112" Background="#332940">Save Quest</Button>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Button Margin="3" Width="112" Background="#332940">Edit Quest</Button>
+                    <Button Margin="3" Width="112" Background="#332940" Content="Edit Quest" Click="ButtonBase_OnClick"/>
                     <Button Margin="3" Width="117" Background="#332940">Duplicate Quest</Button>
                     <Button Margin="3" Width="112" Background="#332940">Remove Quest</Button>
                 </StackPanel>
                 <StackPanel>
-                    <TextBlock x:Name="CurrentQuest" Margin="3" Height="20" Width="347" Foreground="#FFFFFF" Background="#1F1A24">Current Quest</TextBlock>
-                    <ListBox x:Name="QuestListBox" Margin="3" Width="347" Height="753" Background="#1F1A24" Foreground="#FFFFFF"/>
+                    <TextBox x:Name="SearchQuest" Margin="0, 3" Height="Auto" Width="347" Foreground="#FFFFFF" Background="#1F1A24" TextChanged="SearchQuest_OnTextChanged"/>
+                    <ListBox x:Name="QuestListBox" Margin="0 3" Width="347" Height="742" Background="#1F1A24" Foreground="#FFFFFF"/>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
