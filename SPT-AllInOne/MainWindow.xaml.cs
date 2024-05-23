@@ -20,7 +20,7 @@ public partial class MainWindow : Window
         var enums = new FinishEnums();
 
         #pragma warning disable CA1869
-        Console.WriteLine(JsonSerializer.Serialize(quests[0], new JsonSerializerOptions { WriteIndented = true }));
+        // Console.WriteLine(JsonSerializer.Serialize(quests[0], new JsonSerializerOptions { WriteIndented = true }));
         
         QuestSetup(quests, locale, enums);
         
@@ -80,7 +80,7 @@ public partial class MainWindow : Window
             TraderComboBox.Items.Add(traders);
         }
         
-        foreach (var side in enums.SIDE.Keys)
+        foreach (var side in enums.SIDE)
         {
             SideComboBox.Items.Add(side);
         }
@@ -90,7 +90,7 @@ public partial class MainWindow : Window
             LocationComboBox.Items.Add(location);
         }
 
-        foreach (var type in enums.ROOT_CONDITIONS.Keys)
+        foreach (var type in enums.ROOT_CONDITIONS)
         {
             TypeComboBox.Items.Add(type);
         }

@@ -3,53 +3,6 @@ using System.Transactions;
 using System.Windows.Documents;
 
 namespace SPT_AllInOne;
-
-public enum Traders
-{
-    Fence,
-    Prapor,
-    Therapist,
-    Skier,
-    Peacekeeper,
-    Mechanic,
-    Ragman,
-    Jager
-}
-
-public enum Sides
-{
-    PMC,
-    USEC,
-    BEAR,
-    SCAV
-}
-
-public enum RootConditionTypes
-{
-    Counter,
-    FindItem,
-    HandoverItem,
-    LeaveItem,
-    WeaponAssembly,
-    PlaceBeacon
-}
-
-public enum Maps
-{
-    any,
-    Customs,
-    FactoryDay,
-    FactoryNight,
-    GroundZero,
-    Interchange,
-    Labs,
-    Lighthouse,
-    Reserve,
-    Shoreline,
-    Streets,
-    Woods
-}
-
 public enum QuestStatus
 {
     Unknown0 = 0,
@@ -61,11 +14,11 @@ public enum QuestStatus
 
 public class FinishEnums
 {
-    //public Dictionary<Maps,string> MAP_NAMES { get;  set; }
+    public Dictionary<string,string> MAP_NAMES { get;  set; }
     public Dictionary<string,string> MAP_IDS { get;  set; }
-    public Dictionary<RootConditionTypes, string> ROOT_CONDITIONS { get; set; }
-    public Dictionary<Sides, string> SIDE { get;  set; }
-    //public Dictionary<Traders, string> TRADER_NAMES { get;  set; }
+    public List<string> ROOT_CONDITIONS { get; set; }
+    public List<string> SIDE { get;  set; }
+    public Dictionary<string, string> TRADER_NAMES { get;  set; }
     public Dictionary<string, string> TRADER_IDS { get;  set; }
 
     public FinishEnums()
@@ -78,58 +31,44 @@ public class FinishEnums
 
     public void questsSetup()
     {
-        ROOT_CONDITIONS = new Dictionary<RootConditionTypes, string>
+        ROOT_CONDITIONS = new List<string>
         {
-            [RootConditionTypes.Counter] = "CounterCreator",
-            [RootConditionTypes.FindItem] = "FindItem",
-            [RootConditionTypes.HandoverItem] = "HandoverItem",
-            [RootConditionTypes.LeaveItem] = "LeaveItemAtLocation",
-            [RootConditionTypes.WeaponAssembly] = "WeaponAssembly",
-            [RootConditionTypes.PlaceBeacon] = "PlaceBeacon"
+            "CounterCreator",
+            "FindItem",
+            "HandoverItem",
+            "LeaveItemAtLocation",
+            "WeaponAssembly",
+            "PlaceBeacon"
         };
     }
 
     public void sidesSetup()
     {
-        SIDE = new Dictionary<Sides, string>
+        SIDE = new List<string>
         {
-            [Sides.PMC] = "pmc",
-            [Sides.BEAR] = "bear",
-            [Sides.USEC] = "usec",
-            [Sides.SCAV] = "savages"
+            "pmc",
+            "bear",
+            "usec",
+            "savages"
         };
     }
     public void mapsSetup()
     {
-        //MAP_NAMES = new Dictionary<Maps, string>();
-        //MAP_NAMES[Maps.any] = "any";
-        //MAP_NAMES[Maps.Customs] = "bigmap";
-        //MAP_NAMES[Maps.FactoryDay] = "factory4_day";
-        //MAP_NAMES[Maps.FactoryNight] = "factory4_night";
-        //MAP_NAMES[Maps.GroundZero] = "Sandbox";
-        //MAP_NAMES[Maps.Interchange] = "Interchange";
-        //MAP_NAMES[Maps.Labs] = "Laboratory";
-        //MAP_NAMES[Maps.Lighthouse] = "Lighthouse";
-        //MAP_NAMES[Maps.Reserve] = "RezervBase";
-        //MAP_NAMES[Maps.Shoreline] = "Shoreline";
-        //MAP_NAMES[Maps.Streets] = "TarkovStreets";
-        //MAP_NAMES[Maps.Woods] = "Woods";
-        
-        //MAP_IDS = new Dictionary<string, string>
-        //{
-        //    ["any"] = "any",
-        //    ["Customs"] = "56f40101d2720b2a4d8b45d6",
-        //    ["FactoryDay"] = "55f2d3fd4bdc2d5f408b4567",
-        //    ["FactoryNight"] = "59fc81d786f774390775787e",
-        //    ["GroundZero"] = "653e6760052c01c1c805532f",
-        //    ["Interchange"] = "5714dbc024597771384a510d",
-        //    ["Labs"] = "5b0fc42d86f7744a585f9105",
-        //    ["Lighthouse"] = "5704e4dad2720bb55b8b4567",
-        //    ["Reserve"] = "5704e5fad2720bc05b8b4567",
-        //    ["Shoreline"] = "5704e554d2720bac5b8b456e",
-        //    ["Streets"] = "5714dc692459777137212e12",
-        //    ["Woods"] = "5704e3c2d2720bac5b8b4567"
-        //};
+        MAP_NAMES = new Dictionary<string, string>
+        {
+            ["any"] = "any",
+            ["Customs"] = "56f40101d2720b2a4d8b45d6",
+            ["FactoryDay"] = "55f2d3fd4bdc2d5f408b4567",
+            ["FactoryNight"] = "59fc81d786f774390775787e",
+            ["GroundZero"] = "653e6760052c01c1c805532f",
+            ["Interchange"] = "5714dbc024597771384a510d",
+            ["Labs"] = "5b0fc42d86f7744a585f9105",
+            ["Lighthouse"] = "5704e4dad2720bb55b8b4567",
+            ["Reserve"] = "5704e5fad2720bc05b8b4567",
+            ["Shoreline"] = "5704e554d2720bac5b8b456e",
+            ["Streets"] = "5714dc692459777137212e12",
+            ["Woods"] = "5704e3c2d2720bac5b8b4567"
+        };
 
         MAP_IDS = new Dictionary<string, string>
         {
@@ -149,27 +88,17 @@ public class FinishEnums
     }
     public void tradersSetup()
     {
-        //TRADER_NAMES = new Dictionary<Traders, string>();
-        //TRADER_NAMES[Traders.Fence] = "Fence";
-        //TRADER_NAMES[Traders.Prapor] = "Prapor";
-        //TRADER_NAMES[Traders.Therapist] = "Therapist";
-        //TRADER_NAMES[Traders.Skier] = "Skier";
-        //TRADER_NAMES[Traders.Peacekeeper] = "Peacekeeper";
-        //TRADER_NAMES[Traders.Mechanic] = "Mechanic";
-        //TRADER_NAMES[Traders.Ragman] = "Ragman";
-        //TRADER_NAMES[Traders.Jager] = "Jager";
-        
-        //TRADER_IDS = new Dictionary<string, string>
-        //{
-        //    ["Fence"] = "579dc571d53a0658a154fbec",
-        //    ["Prapor"] = "54cb50c76803fa8b248b4571",
-        //    ["Therapist"] = "54cb57776803fa99248b456e",
-        //    ["Skier"] = "58330581ace78e27b8b10cee",
-        //    ["Peacekeeper"] = "5935c25fb3acc3127c3d8cd9",
-        //    ["Mechanic"] = "5a7c2eca46aef81a7ca2145d",
-        //    ["Ragman"] = "5ac3b934156ae10c4430e83c",
-        //    ["Jager"] = "5c0647fdd443bc2504c2d371"
-        //};
+        TRADER_NAMES = new Dictionary<string, string>
+        {
+            ["Fence"] = "579dc571d53a0658a154fbec",
+            ["Prapor"] = "54cb50c76803fa8b248b4571",
+            ["Therapist"] = "54cb57776803fa99248b456e",
+            ["Skier"] = "58330581ace78e27b8b10cee",
+            ["Peacekeeper"] = "5935c25fb3acc3127c3d8cd9",
+            ["Mechanic"] = "5a7c2eca46aef81a7ca2145d",
+            ["Ragman"] = "5ac3b934156ae10c4430e83c",
+            ["Jager"] = "5c0647fdd443bc2504c2d371"
+        };
 
         TRADER_IDS = new Dictionary<string, string>
         {
@@ -312,7 +241,7 @@ public class CounterConditions
     public CounterConditions(string _name, dynamic input)
     {
         name = _name;
-        Console.WriteLine($"Weapon Assembly Constructor: {name} | {input}");
+        // Console.WriteLine($"Weapon Assembly Constructor: {name} | {input}");
         compareMethod = input["compareMethod"];
         value = (int)input["value"];
     }
@@ -431,6 +360,17 @@ public class AFF_Counter : AFF
             switch (c["conditionType"])
             {
                 case "Kills": counter.Add(new AFF_CounterConditions_Kills(c)); break;
+                case "Location": break;
+                case "ExitStatus": break;
+                case "VisitPlace": break;
+                case "Equipment": break;
+                case "Shots": break;
+                case "HealthEffect": break;
+                case "InZone": break;
+                case "LaunchFlare": break;
+                case "ExitName": break;
+                case "HealthBuff": break;
+                default: throw new Exception($"Unknown condition type!! {c["conditionType"]}");
             }
         }
     }
@@ -541,7 +481,7 @@ public class AFF_WeaponAssembly : AFF
         hasItemFromCategory = new List<string>();
         foreach (dynamic part in input.Keys)
         {
-            Console.WriteLine($"{part}:{input[part]}");
+            // Console.WriteLine($"{part}:{input[part]}");
             switch (part)
             {
                 case "dynamicLocale": dynamicLocale = input["dynamicLocale"]; break;
