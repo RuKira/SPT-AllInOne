@@ -193,7 +193,8 @@
                                     </StackPanel>
                                     <StackPanel Grid.Row="2" Grid.Column="0" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
                                         <ComboBox Margin="5" Width="140" Height="Auto" BorderBrush="#332940" Background="#332940">Status</ComboBox>
-                                        <Button Margin="155. 5" Width="140" Height="Auto" BorderBrush="#332940" Background="#332940">Remove</Button>
+                                        <TextBox Margin="5" Width="140" Height="Auto" BorderBrush="#1F1A24" Foreground="#FFFFFF" Background="#1F1A24">Amount</TextBox>
+                                        <Button Margin="5. 5" Width="140" Height="Auto" BorderBrush="#332940" Background="#332940">Remove</Button>
                                     </StackPanel>
                                     <StackPanel Grid.Row="3" Grid.Column="0" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
                                         <TextBox Width="450" Height="171" Background="#1F1A24" BorderBrush="#1F1A24" Foreground="#FFFFFF">Data</TextBox>
@@ -222,7 +223,8 @@
                                     </StackPanel>
                                     <StackPanel Grid.Row="2" Grid.Column="1" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
                                         <ComboBox Margin="5" Width="140" Height="Auto" BorderBrush="#332940" Background="#332940">Status</ComboBox>
-                                        <Button Margin="155. 5" Width="140" Height="Auto" BorderBrush="#332940" Background="#332940">Remove</Button>
+                                        <TextBox Margin="5" Width="140" Height="Auto" BorderBrush="#1F1A24" Foreground="#FFFFFF" Background="#1F1A24">Amount</TextBox>
+                                        <Button Margin="5. 5" Width="140" Height="Auto" BorderBrush="#332940" Background="#332940">Remove</Button>
                                     </StackPanel>
                                     <StackPanel Grid.Row="3" Grid.Column="1" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
                                         <TextBox Width="450" Height="171" Background="#1F1A24" BorderBrush="#1F1A24" Foreground="#FFFFFF">Data</TextBox>
@@ -250,10 +252,54 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
-                                    <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF">Handover Item</Label>
-                                    
-                                    
-                                    <Label Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF">Find Items</Label>
+                                    <StackPanel Grid.Row="0" Grid.Column="0" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                        <Label Width="Auto" Height="Auto" Content="Handover Item" Foreground="#FFFFFF"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="0" Margin="5" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                        <TextBox Margin="5" Width="140" Height="Auto" BorderBrush="#1F1A24" Foreground="#FFFFFF" Background="#1F1A24">Id</TextBox>
+                                        <CheckBox Margin="5" Width="140" Height="Auto" Foreground="#FFFFFF">Dynamic Locale</CheckBox>
+                                        <Button Margin="5" Width="140" Height="Auto" BorderBrush="#332940" Background="#332940">Add</Button>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Grid.Column="0" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                        <ComboBox Margin="5" Width="140" Height="Auto" BorderBrush="#332940" Background="#332940">Status</ComboBox>
+                                        <TextBox Margin="5" Width="140" Height="Auto" BorderBrush="#1F1A24" Foreground="#FFFFFF" Background="#1F1A24">Amount</TextBox>
+                                        <Button Margin="5. 5" Width="140" Height="Auto" BorderBrush="#332940" Background="#332940">Remove</Button>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="3" Grid.Column="0" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                        <TextBox Width="450" Height="171" Background="#1F1A24" BorderBrush="#1F1A24" Foreground="#FFFFFF">Data</TextBox>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="4" Grid.Column="0" Margin="5" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                        <ListBox Width="450" Height="395" Background="#1F1A24" Foreground="#FFFFFF">
+                                            <ListBoxItem>Example Condition 1</ListBoxItem>
+                                            <ListBoxItem>Example Condition 2</ListBoxItem>
+                                            <ListBoxItem>Example Condition 3</ListBoxItem>
+                                            <ListBoxItem>Example Condition 4</ListBoxItem>
+                                        </ListBox>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="1" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                        <Label Width="Auto" Height="Auto" Content="Find Item" Foreground="#FFFFFF"/>                                    
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="1" Margin="5" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                        <TextBox Margin="5" Width="140" Height="Auto" BorderBrush="#1F1A24" Foreground="#FFFFFF" Background="#1F1A24">Id</TextBox>
+                                        <CheckBox Margin="5" Width="140" Height="Auto" Foreground="#FFFFFF">Dynamic Locale</CheckBox>
+                                        <Button Margin="5" Width="140" Height="Auto" BorderBrush="#332940" Background="#332940">Add</Button>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Grid.Column="1" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                        <ComboBox Margin="5" Width="140" Height="Auto" BorderBrush="#332940" Background="#332940">Status</ComboBox>
+                                        <TextBox Margin="5" Width="140" Height="Auto" BorderBrush="#1F1A24" Foreground="#FFFFFF" Background="#1F1A24">Amount</TextBox>
+                                        <Button Margin="5. 5" Width="140" Height="Auto" BorderBrush="#332940" Background="#332940">Remove</Button>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="3" Grid.Column="1" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                        <TextBox Width="450" Height="171" Background="#1F1A24" BorderBrush="#1F1A24" Foreground="#FFFFFF">Data</TextBox>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="4" Grid.Column="1" Margin="5" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                        <ListBox Width="450" Height="395" Background="#1F1A24" Foreground="#FFFFFF"> 
+                                            <ListBoxItem>Example Condition 1</ListBoxItem>
+                                            <ListBoxItem>Example Condition 2</ListBoxItem>
+                                            <ListBoxItem>Example Condition 3</ListBoxItem>
+                                            <ListBoxItem>Example Condition 4</ListBoxItem>
+                                        </ListBox>
+                                    </StackPanel>
                                 </Grid>
                             </TabItem>
                             <TabItem Header="Place Beacon and Leave Item" Background="DarkGray" BorderBrush="#121212">
@@ -269,15 +315,58 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
-                                    <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF">Place Beacon</Label>
-                                    
-                                    
-                                    <Label Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF">Leave Item At Location</Label>
+                                    <StackPanel Grid.Row="0" Grid.Column="0" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                        <Label Width="Auto" Height="Auto" Content="Place Beacon" Foreground="#FFFFFF"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="0" Margin="5" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                        <TextBox Margin="5" Width="140" Height="Auto" BorderBrush="#1F1A24" Foreground="#FFFFFF" Background="#1F1A24">Id</TextBox>
+                                        <CheckBox Margin="5" Width="140" Height="Auto" Foreground="#FFFFFF">Dynamic Locale</CheckBox>
+                                        <Button Margin="5" Width="140" Height="Auto" BorderBrush="#332940" Background="#332940">Add</Button>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Grid.Column="0" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                        <ComboBox Margin="5" Width="140" Height="Auto" BorderBrush="#332940" Background="#332940">Status</ComboBox>
+                                        <TextBox Margin="5" Width="140" Height="Auto" BorderBrush="#1F1A24" Foreground="#FFFFFF" Background="#1F1A24">Amount</TextBox>
+                                        <Button Margin="5. 5" Width="140" Height="Auto" BorderBrush="#332940" Background="#332940">Remove</Button>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="3" Grid.Column="0" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                        <TextBox Width="450" Height="171" Background="#1F1A24" BorderBrush="#1F1A24" Foreground="#FFFFFF">Data</TextBox>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="4" Grid.Column="0" Margin="5" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                        <ListBox Width="450" Height="395" Background="#1F1A24" Foreground="#FFFFFF">
+                                            <ListBoxItem>Example Condition 1</ListBoxItem>
+                                            <ListBoxItem>Example Condition 2</ListBoxItem>
+                                            <ListBoxItem>Example Condition 3</ListBoxItem>
+                                            <ListBoxItem>Example Condition 4</ListBoxItem>
+                                        </ListBox>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="1" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                        <Label Width="Auto" Height="Auto" Content="Leave Item At Location" Foreground="#FFFFFF"/>                                    
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="1" Margin="5" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                        <TextBox Margin="5" Width="140" Height="Auto" BorderBrush="#1F1A24" Foreground="#FFFFFF" Background="#1F1A24">Id</TextBox>
+                                        <CheckBox Margin="5" Width="140" Height="Auto" Foreground="#FFFFFF">Dynamic Locale</CheckBox>
+                                        <Button Margin="5" Width="140" Height="Auto" BorderBrush="#332940" Background="#332940">Add</Button>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Grid.Column="1" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                        <ComboBox Margin="5" Width="140" Height="Auto" BorderBrush="#332940" Background="#332940">Status</ComboBox>
+                                        <TextBox Margin="5" Width="140" Height="Auto" BorderBrush="#1F1A24" Foreground="#FFFFFF" Background="#1F1A24">Amount</TextBox>
+                                        <Button Margin="5. 5" Width="140" Height="Auto" BorderBrush="#332940" Background="#332940">Remove</Button>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="3" Grid.Column="1" Margin="5" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Left">
+                                        <TextBox Width="450" Height="171" Background="#1F1A24" BorderBrush="#1F1A24" Foreground="#FFFFFF">Data</TextBox>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="4" Grid.Column="1" Margin="5" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                        <ListBox Width="450" Height="395" Background="#1F1A24" Foreground="#FFFFFF"> 
+                                            <ListBoxItem>Example Condition 1</ListBoxItem>
+                                            <ListBoxItem>Example Condition 2</ListBoxItem>
+                                            <ListBoxItem>Example Condition 3</ListBoxItem>
+                                            <ListBoxItem>Example Condition 4</ListBoxItem>
+                                        </ListBox>
+                                    </StackPanel>
                                 </Grid>
                             </TabItem>
-                            <TabItem Header="Counter Creator (Read Only)" Background="DarkGray" BorderBrush="#121212"/>
-                            <TabItem Header="Weapon Assembly (Read Only)" Background="DarkGray" BorderBrush="#121212"/>
-
+                            <TabItem Header="Counter Creator (Read Only)" Background="DarkGray" BorderBrush="#121212"></TabItem>
+                            <TabItem Header="Weapon Assembly (Read Only)" Background="DarkGray" BorderBrush="#121212"></TabItem>
                         </TabControl>
                     </TabItem>
                     <TabItem Height="Auto" Width="60" Background="#FFA9D1F4" BorderBrush="#121212" Header="Fail"> 
