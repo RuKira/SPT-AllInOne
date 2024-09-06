@@ -31,7 +31,8 @@ and more
 
 - Allow Integration to VCQL [VIRTUAL'S CUSTOM QUEST LOADER - Virtual](https://hub.sp-tarkov.com/files/file/885-virtual-s-custom-quest-loader/)
 - Allow Integration to QE [Quests Extended - CJ](https://hub.sp-tarkov.com/files/file/2283-quests-extended/)
-- Allow Integration to MMAQL [MUSICMANIAC'S ADVANCED QUEST LOADER - MusicManiac](https://hub.sp-tarkov.com/files/file/1719-musicmaniac-s-advanced-quest-loader-mmaql/#overview)
+- Allow Integration to MMAQL [MUSICMANIAC'S ADVANCED QUEST LOADER - MusicManiac](https://hub.sp-tarkov.com/files/file/1719-musicmaniac-s-advanced-quest-loader-mmaql/)
+- Allow Integration to CQ [Custom Quests - Trap](https://hub.sp-tarkov.com/files/file/588-custom-quests/)
 
 ---
 
