@@ -6,11 +6,15 @@ using System.Dynamic;
 using System.ComponentModel;
 using System.IO;
 using System.Globalization;
+using Newtonsoft.Json;
 
 namespace SPT_AllInOne;
 
 public class JsonObject : DynamicObject, INotifyPropertyChanged
 {
+	
+	//  return JsonConvert.DeserializeObject<T>(req, GClass1459.SerializerSettings);
+	// Line above should be the return for most of the Json Converters -> Rewirte code to use this or somewhere else.
 
     protected Dictionary<string, dynamic> _thisDict;
 
