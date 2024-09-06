@@ -11,6 +11,10 @@
 
     <ItemGroup>
       <PackageReference Include="ModernWpfUI" Version="0.9.6" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+      <Reference Include="Assembly-CSharp">
+        <HintPath>../../../SPT/BepInEx/DumpedAssemblies/EscapeFromTarkov/Assembly-CSharp.dll</HintPath>
+      </Reference>
     </ItemGroup>
 
 </Project>
