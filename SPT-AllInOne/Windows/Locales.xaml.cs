@@ -1,8 +1,8 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
 
-namespace SPT_AllInOne.Pages;
+namespace SPT_AllInOne.Windows;
 
-public partial class Locales : Page
+public partial class Locales : Window
 {
     public Locales()
     {

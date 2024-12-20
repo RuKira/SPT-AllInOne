@@ -1,8 +1,8 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
 
-namespace SPT_AllInOne.Pages;
+namespace SPT_AllInOne.Windows;
 
-public partial class Fail : Page
+public partial class Fail : Window
 {
     public Fail()
     {

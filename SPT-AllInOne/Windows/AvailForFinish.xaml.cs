@@ -1,8 +1,8 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
 
-namespace SPT_AllInOne.Pages;
+namespace SPT_AllInOne.Windows;
 
-public partial class AvailForFinish : Page
+public partial class AvailForFinish : Window
 {
     public AvailForFinish()
     {

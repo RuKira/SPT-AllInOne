@@ -13,8 +13,41 @@
       <PackageReference Include="ModernWpfUI" Version="0.9.6" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
       <Reference Include="Assembly-CSharp">
-        <HintPath>../../../SPT/BepInEx/DumpedAssemblies/EscapeFromTarkov/Assembly-CSharp.dll</HintPath>
+        <HintPath>../../../EscapeFromTarkov_Data/Managed/Assembly-CSharp.dll</HintPath>
       </Reference>
     </ItemGroup>
 
+    <ItemGroup>
+      <Page Update="Windows\AvailForFinish.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+      <Page Update="Windows\AvailForStart.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+      <Page Update="Windows\Fail.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+      <Page Update="Windows\Gunsmith.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+      <Page Update="Windows\Locales.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+      <Page Update="Windows\Backups\OldMain.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+    </ItemGroup>
+    
 </Project>
