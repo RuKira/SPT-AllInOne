@@ -1,3 +1,7 @@
+# THIS PROJECT IS NO LONGER BEING UPDATED AS CJ IS WORKING ON TARKOVTOOLS!
+
+
+
 This application is not finished, as I learn WPF - not the best with XAML.
 
 However, I am making an application that does a lot of things.
